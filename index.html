@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City Llama — Vol. XXVI</title>
+<link rel="icon" type="image/png" href="assets/images/asset-01.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-01.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-02.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-03.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-04.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-05.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-06.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-07.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-08.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-09.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-10.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/asset-11.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-05.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-06.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-07.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-08.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-09.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-10.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-11.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-05.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-06.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-07.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-08.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-09.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-10.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/asset-11.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-12.woff") format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-13.woff") format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-14.woff") format('woff');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-15.woff") format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-16.woff") format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-17.woff") format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  :root {
+    --bg: #000000;
+    --fg: #efe9dc;
+    --fg-2: #bdb6a7;
+    --fg-dim: #7e7a71;
+    --fg-mute: #44413c;
+    --line: #1c1b19;
+    --line-2: #2a2824;
+    --accent: #efe9dc;
+    --accent-ink: #000000;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Inter Tight', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg); color: var(--fg);
+    font-family: var(--sans); font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; border-radius: 0; }
+  input, select, textarea { border-radius: 0; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--fg); color: var(--bg); }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    font-weight: 400;
+  }
+  .rule { height: 1px; background: var(--line); width: 100%; }
+
+  /* ================== MASTHEAD ================== */
+  .mast {
+    position: relative;
+    padding: 28px 48px 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .mast .left, .mast .right {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    display: flex;
+    gap: 48px;
+  }
+  .mast .right { justify-content: flex-end; }
+  .mast .right a, .mast .left a { transition: color .3s; }
+  .mast .right a:hover, .mast .left a:hover { color: var(--fg); }
+  .mast .wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 16px;
+  }
+  .mast .wordmark .mark {
+    width: 52px; height: 52px;
+    background-image: url("assets/images/asset-01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.96;
+  }
+  .mast .wordmark .text {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(36px, 5.2vw, 76px);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+  }
+  .mast .wordmark em { font-style: italic; }
+  .mast-strip {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 14px 48px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .mast-strip .c { text-align: center; }
+  .mast-strip .r { text-align: right; }
+
+  /* ================== FEATURE ================== */
+  .feature {
+    padding: 120px 48px 160px;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(480px, 2fr) minmax(220px, 1fr);
+    gap: 80px;
+    align-items: start;
+    border-bottom: 1px solid var(--line);
+  }
+  .feature-meta {
+    display: grid;
+    gap: 40px;
+    padding-top: 24px;
+  }
+  .feature-meta .imprint {
+    display: grid;
+    gap: 14px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .feature-meta .imprint .mark {
+    width: 36px; height: 36px;
+    background-image: url("assets/images/asset-01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+  }
+  .feature-meta .imprint .stamp {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    line-height: 1.7;
+  }
+  .feature-meta .row {
+    display: grid;
+    gap: 8px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .feature-meta .row:last-child { border-bottom: 0; }
+  .feature-meta .k {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .feature-meta .v {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.25;
+    color: var(--fg);
+  }
+  .feature-meta .v em { font-style: italic; color: var(--fg-2); }
+
+  .feature-frame {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: #050505;
+    overflow: hidden;
+  }
+  .feature-frame .plate {
+    position: absolute; inset: 0;
+    background-image: url("assets/images/asset-02.png");
+    background-size: cover;
+    background-position: 58% center;
+    filter: grayscale(0.4) contrast(1.04) brightness(0.82);
+  }
+  .feature-frame .frame-label {
+    position: absolute; left: 20px; bottom: 20px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg);
+    z-index: 2;
+  }
+  .feature-frame .frame-num {
+    position: absolute; right: 20px; top: 20px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: var(--fg);
+    z-index: 2;
+  }
+
+  .feature-title {
+    padding-top: 16px;
+  }
+  .feature-spine {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 28px;
+  }
+  .feature-title h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 8.5vw, 148px);
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+  }
+  .feature-title h1 em { font-style: italic; }
+  .feature-title .director {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--fg-2);
+    margin-top: 36px;
+    line-height: 1.3;
+  }
+  .feature-title .synopsis {
+    margin-top: 40px;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    max-width: 38ch;
+  }
+  .feature-title .synopsis:first-letter {
+    font-family: var(--serif);
+    font-size: 72px;
+    line-height: 0.8;
+    float: left;
+    padding: 6px 10px 0 0;
+    font-style: italic;
+    color: var(--fg);
+  }
+  .feature-title .watch {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--fg);
+    transition: color .3s, border-color .3s;
+  }
+  .feature-title .watch:hover { color: var(--fg-2); border-color: var(--fg-2); }
+  .feature-title .watch .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--fg);
+  }
+
+  /* ================== INDEX ================== */
+  .section-mast {
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 48px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-mast .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .section-mast .name {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4.2vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+  .section-mast .name em { font-style: italic; }
+  .section-mast .count {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+
+  .index {
+    padding: 0 48px;
+  }
+  .index-head {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 140px 100px 80px;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line-2);
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .index-head .r { text-align: right; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 140px 100px 80px;
+    gap: 32px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    position: relative;
+    transition: padding .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .entry:hover {
+    padding: 56px 0;
+  }
+  .entry .spine {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--fg-dim);
+  }
+  .entry .title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.4vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+  .entry .title em { font-style: italic; }
+  .entry .director {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--fg-2);
+  }
+  .entry .format {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .entry .year {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--fg-2);
+  }
+  .entry .status {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-align: right;
+  }
+  .entry-more {
+    padding: 40px 0 80px;
+    text-align: center;
+  }
+  .entry-more a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--fg);
+  }
+
+  /* ================== NOTES ================== */
+  .notes {
+    padding: 200px 48px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .notes-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 120px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .notes-head {
+    padding-top: 12px;
+    position: sticky;
+    top: 48px;
+    align-self: start;
+  }
+  .notes-head .kicker {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 28px;
+  }
+  .notes-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(44px, 5.5vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--fg);
+  }
+  .notes-head h2 em { font-style: italic; }
+  .notes-head .author {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--fg-2);
+    margin-top: 40px;
+    line-height: 1.4;
+  }
+
+  .notes-body {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    max-width: 52ch;
+  }
+  .notes-body p {
+    margin-bottom: 1.3em;
+  }
+  .notes-body p:first-of-type {
+    font-size: 30px;
+    line-height: 1.4;
+    color: var(--fg);
+  }
+  .notes-body p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 110px;
+    line-height: 0.85;
+    float: left;
+    padding: 8px 14px 0 0;
+    color: var(--fg);
+  }
+  .notes-body em { font-style: italic; color: var(--fg); }
+  .notes-body .sig {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-top: 64px;
+    display: block;
+  }
+
+  /* ================== ROOMS ================== */
+  .rooms {
+    padding: 0;
+  }
+  .room {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 64px;
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .room .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--fg-dim);
+    padding-top: 12px;
+  }
+  .room h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(44px, 5.5vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    color: var(--fg);
+  }
+  .room h3 em { font-style: italic; }
+  .room-body {
+    padding-top: 14px;
+    display: grid;
+    gap: 28px;
+  }
+  .room-body p {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    max-width: 42ch;
+  }
+  .room-body .list {
+    display: grid;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .room-body .list span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+
+  /* ================== CONTACT ================== */
+  .contact {
+    padding: 200px 48px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .contact-lead {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 6.5vw, 110px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+    max-width: 14ch;
+  }
+  .contact-lead em { font-style: italic; color: var(--fg-2); }
+  .contact-side {
+    display: grid;
+    gap: 72px;
+    padding-top: 12px;
+  }
+  .contact-side h6 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+  .contact-side .email {
+    font-family: var(--serif);
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line-2);
+    transition: border-color .3s;
+  }
+  .contact-side .email:hover { border-color: var(--fg); }
+  .contact-side .addr {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--fg-2);
+  }
+  .contact-side .note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--fg-dim);
+    max-width: 38ch;
+  }
+
+  /* ================== COLOPHON ================== */
+  .colophon {
+    padding: 80px 48px 40px;
+  }
+  .colophon-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--line);
+  }
+  .colophon-col h6 {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .colophon-col a, .colophon-col span {
+    display: block;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--fg);
+    transition: color .3s;
+  }
+  .colophon-col a:hover { color: var(--fg-dim); }
+  .colophon-col em { font-style: italic; }
+  .colophon-mark {
+    width: 72px; height: 72px;
+    margin: 80px auto 20px;
+    background-image: url("assets/images/asset-01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+  }
+  .colophon-wordmark {
+    font-family: var(--serif);
+    font-size: clamp(120px, 22vw, 360px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    text-align: center;
+    padding: 0 0 20px;
+    color: var(--fg);
+  }
+  .colophon-wordmark em { font-style: italic; }
+  .colophon-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .colophon-bottom .c { text-align: center; }
+  .colophon-bottom .r { text-align: right; }
+
+  /* ================== TWEAKS ================== */
+  #tweaks {
+    position: fixed; right: 20px; bottom: 20px; z-index: 200;
+    background: #0a0a0a; border: 1px solid var(--line-2);
+    padding: 22px; width: 280px;
+    font-family: var(--mono); color: var(--fg-dim);
+    display: none;
+  }
+  #tweaks.visible { display: block; }
+  #tweaks h5 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg); margin-bottom: 18px; font-weight: 400; }
+  #tweaks .group { margin-bottom: 18px; }
+  #tweaks .group label { display: block; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 10px; color: var(--fg-mute); }
+  #tweaks .swatches { display: flex; gap: 8px; }
+  #tweaks .sw { width: 28px; height: 28px; border: 1px solid var(--line-2); cursor: pointer; }
+  #tweaks .sw.on { outline: 1px solid var(--fg); outline-offset: 2px; }
+  #tweaks .seg { display: flex; border: 1px solid var(--line-2); }
+  #tweaks .seg button { flex: 1; padding: 10px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-dim); }
+  #tweaks .seg button.on { background: var(--fg); color: var(--bg); }
+
+  /* ================== RESPONSIVE ================== */
+  @media (max-width: 960px) {
+    .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
+    .mast .left, .mast .right { display: none; }
+    .mast .wordmark { font-size: 52px; padding-bottom: 12px; }
+    .mast-strip { padding: 10px 20px; font-size: 9px; }
+    .mast-strip .l, .mast-strip .r { display: none; }
+
+    .feature { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 48px; }
+    .feature-meta { padding-top: 0; }
+    .feature-title h1 { font-size: clamp(52px, 14vw, 84px); }
+
+    .section-mast { padding: 32px 20px; grid-template-columns: 1fr; gap: 16px; }
+    .section-mast .count { text-align: left; }
+
+    .index { padding: 0 20px; }
+    .index-head { display: none; }
+    .entry {
+      grid-template-columns: 60px 1fr;
+      gap: 16px;
+      padding: 32px 0;
+    }
+    .entry:hover { padding: 32px 0; }
+    .entry .director, .entry .format, .entry .year, .entry .status {
+      grid-column: 2;
+      text-align: left;
+    }
+    .entry .title { font-size: 34px; }
+
+    .notes { padding: 100px 20px; }
+    .notes-inner { grid-template-columns: 1fr; gap: 48px; }
+    .notes-head { position: static; }
+    .notes-body { font-size: 20px; }
+    .notes-body p:first-of-type { font-size: 24px; }
+
+    .room { grid-template-columns: 1fr; gap: 24px; padding: 56px 20px; }
+
+    .contact { padding: 100px 20px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 64px; }
+
+    .colophon { padding: 48px 20px 24px; }
+    .colophon-top, .colophon-bottom { grid-template-columns: 1fr; gap: 32px; }
+    .colophon-bottom .c, .colophon-bottom .r { text-align: left; }
+    .colophon-mark { width: 48px; height: 48px; margin: 48px auto 12px; }
+    .colophon-wordmark { font-size: 80px; padding: 0 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ============ MASTHEAD ============ -->
+<header class="mast">
+  <nav class="left">
+    <a href="#index">Index</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#notes">Notes</a>
+  </nav>
+  <div class="wordmark">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="text">City <em>Llama</em></span>
+  </div>
+  <nav class="right">
+    <a href="#contact">Contact</a>
+    <a href="#">Reel</a>
+    <a href="#">Press</a>
+  </nav>
+</header>
+
+<div class="mast-strip">
+  <span class="l">Vol. XXVI · Spring Quarterly</span>
+  <span class="c">A Film &amp; Story Program · Est. Brooklyn MMXXI</span>
+  <span class="r">No. 004</span>
+</div>
+
+<!-- ============ FEATURE (single held shot) ============ -->
+<section class="feature" data-screen-label="01 Feature">
+  <aside class="feature-meta">
+    <div class="imprint">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="stamp">A City Llama<br>Production · MMXXVI</span>
+    </div>
+    <div class="row">
+      <span class="k">Now Showing</span>
+      <span class="v">No. 004 <em>— The Llama</em></span>
+    </div>
+    <div class="row">
+      <span class="k">Runtime</span>
+      <span class="v">14 min. 22 sec.</span>
+    </div>
+    <div class="row">
+      <span class="k">Format</span>
+      <span class="v">35mm · 2.39:1</span>
+    </div>
+    <div class="row">
+      <span class="k">Language</span>
+      <span class="v"><em>English &amp; Quechua</em></span>
+    </div>
+  </aside>
+
+  <figure class="feature-frame" aria-hidden="true">
+    <div class="plate"></div>
+    <span class="frame-num">Frame 1 / 1</span>
+    <span class="frame-label">Still · dir. M. Okafor</span>
+  </figure>
+
+  <div class="feature-title">
+    <div class="feature-spine">Vol. XXVI · No. 004 · Spring 2026</div>
+    <h1>The <em>Llama.</em></h1>
+    <div class="director">A short film by Marisol Okafor, produced in residence at City Llama.</div>
+    <p class="synopsis">
+      Somewhere between Lima and Queens, a boy inherits an animal he did not ask for, and a city that does not want him. A held shot, a long walk, and a conversation about what we carry across borders.
+    </p>
+    <a class="watch" href="#">
+      <span class="dot"></span>
+      <span>Watch — 14:22</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ INDEX OF FILMS ============ -->
+<div class="section-mast">
+  <span class="num">§ 02 — Index</span>
+  <h2 class="name">Films &amp; <em>moving pictures</em>.</h2>
+  <span class="count">MMXXI — MMXXVI · 48 titles</span>
+</div>
+
+<section class="index" id="index" data-screen-label="02 Index">
+  <div class="index-head">
+    <span>No.</span>
+    <span>Title</span>
+    <span>Director</span>
+    <span>Format</span>
+    <span>Year</span>
+    <span class="r">Status</span>
+  </div>
+
+  <a class="entry" href="#">
+    <span class="spine">004</span>
+    <span class="title">The <em>Llama</em></span>
+    <span class="director">Marisol Okafor</span>
+    <span class="format">Short · 35mm</span>
+    <span class="year">2026</span>
+    <span class="status">Now Showing</span>
+  </a>
+
+  <a class="entry" href="#">
+    <span class="spine">003</span>
+    <span class="title">The <em>Bet</em></span>
+    <span class="director">JaySix</span>
+    <span class="format">Short · Digital</span>
+    <span class="year">2026</span>
+    <span class="status">Greenlit</span>
+  </a>
+
+  <a class="entry" href="#">
+    <span class="spine">002</span>
+    <span class="title">Open the <em>Door</em></span>
+    <span class="director">Lena Park</span>
+    <span class="format">Feature · 4K</span>
+    <span class="year">2026</span>
+    <span class="status">In Post</span>
+  </a>
+
+  <a class="entry" href="#">
+    <span class="spine">001</span>
+    <span class="title">Escape From <em>Long Island</em></span>
+    <span class="director">A. Cruz &amp; D. Hall</span>
+    <span class="format">Series · 16mm</span>
+    <span class="year">2026</span>
+    <span class="status">Shooting</span>
+  </a>
+
+  <a class="entry" href="#">
+    <span class="spine">000</span>
+    <span class="title">Isla<em>Hub</em></span>
+    <span class="director">Studio collective</span>
+    <span class="format">Doc · HD</span>
+    <span class="year">2025</span>
+    <span class="status">Pitching</span>
+  </a>
+
+  <div class="entry-more">
+    <a href="#">Full index — 48 titles</a>
+  </div>
+</section>
+
+<!-- ============ NOTES FROM THE STUDIO (essayistic, not About) ============ -->
+<section class="notes" id="notes" data-screen-label="03 Notes">
+  <div class="notes-inner">
+    <aside class="notes-head">
+      <div class="kicker">§ 03 — Notes from the Studio</div>
+      <h2>On <em>making less.</em></h2>
+      <div class="author">A short essay by the founder, reprinted from the MMXXVI spring quarterly.</div>
+    </aside>
+
+    <div class="notes-body">
+      <p>
+        We started City Llama because we were tired of the factory. Tired of work that landed on a brief and died on a brief. Tired of the commercial that won an award no one watched twice.
+      </p>
+      <p>
+        Our rule is small. We take on a short list of films each year — some under a brand name, some under their own — and we stay in the room from the first page of the treatment to the last minute of the color. The people who write it, shoot it. The people who shoot it, cut it. We do not hand work off.
+      </p>
+      <p>
+        Strategy belongs in the same room. The AI tools we build are not a separate offering; they are how we listen — to audience, to archive, to the language of a place. We use them the way a cinematographer uses a light meter. <em>Quietly. Before the take.</em>
+      </p>
+      <p>
+        What we will not do: pitch decks thicker than a screenplay, cultural moments chased on deadline, anything we would be embarrassed to screen in a room of filmmakers.
+      </p>
+      <p>
+        What we will do: read every brief. Reply within the week. Say no, often, and yes with our whole weight behind it.
+      </p>
+      <span class="sig">— The Editors, Brooklyn, MMXXVI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROOMS ============ -->
+<div class="section-mast">
+  <span class="num">§ 04 — Rooms</span>
+  <h2 class="name">The <em>program.</em></h2>
+  <span class="count">Three departments · one roof</span>
+</div>
+
+<section class="rooms" id="rooms" data-screen-label="04 Rooms">
+  <article class="room">
+    <span class="num">I.</span>
+    <h3>The <em>Cutting Room.</em></h3>
+    <div class="room-body">
+      <p>Film, commercial, documentary. Concept through final color, carried by the same crew. For brands who want a film, not a video.</p>
+      <div class="list">
+        <span>Narrative Short · Feature · Doc</span>
+        <span>Brand Film · Campaign · Director Rep</span>
+        <span>Original IP · Development</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="room">
+    <span class="num">II.</span>
+    <h3>The <em>Projection Room.</em></h3>
+    <div class="room-body">
+      <p>A film is a beginning. We plan the release — festival, streamer, socials, screens — so the work lands where its audience already lives.</p>
+      <div class="list">
+        <span>Festival &amp; Distribution Strategy</span>
+        <span>Release · Press · Screenings</span>
+        <span>Socials as a Second Cut</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="room">
+    <span class="num">III.</span>
+    <h3>The <em>Archive.</em></h3>
+    <div class="room-body">
+      <p>Our research arm. Audience, language, archive. Custom pipelines and models — quiet tools that let the work speak louder.</p>
+      <div class="list">
+        <span>Brand Voice &amp; Audience Research</span>
+        <span>On-Set Pre-Vis &amp; Lookdev Models</span>
+        <span>Editorial &amp; Strategy Residencies</span>
+      </div>
+    </div>
+  </article>
+
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact" data-screen-label="05 Contact">
+  <div class="contact-inner">
+    <h2 class="contact-lead">Send us a <em>letter.</em></h2>
+    <div class="contact-side">
+      <div>
+        <h6>Correspondence</h6>
+        <a class="email" href="mailto:hello@citylla.ma">hello@citylla.ma</a>
+      </div>
+      <div>
+        <h6>Studio</h6>
+        <p class="addr">116 Franklin Street<br>Brooklyn, New York 11222<br>By appointment</p>
+      </div>
+      <div>
+        <h6>Reading</h6>
+        <p class="note">We consider new briefs quarterly. Currently reading for Q3 &amp; Q4 2026. We reply to every serious letter within seven days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOPHON ============ -->
+<footer class="colophon" data-screen-label="06 Colophon">
+  <div class="colophon-top">
+    <div class="colophon-col">
+      <h6>Offices</h6>
+      <span>Brooklyn <em>(HQ)</em></span>
+      <span>Lima</span>
+      <span>London <em>(corr.)</em></span>
+    </div>
+    <div class="colophon-col">
+      <h6>Reading</h6>
+      <a href="#">The Quarterly</a>
+      <a href="#">Notes from the Studio</a>
+      <a href="#">Reading List</a>
+    </div>
+    <div class="colophon-col">
+      <h6>Channels</h6>
+      <a href="#">Instagram</a>
+      <a href="#">Vimeo</a>
+      <a href="#">Criterion Channel</a>
+    </div>
+  </div>
+
+  <div class="colophon-mark" aria-hidden="true"></div>
+  <div class="colophon-wordmark">City <em>Llama</em></div>
+
+  <div class="colophon-bottom">
+    <span class="l">© MMXXVI · Vol. XXVI</span>
+    <span class="c">Set in Instrument Serif &amp; JetBrains Mono</span>
+    <span class="r">Brooklyn — New York</span>
+  </div>
+</footer>
+
+<!-- ============ TWEAKS ============ -->
+<div id="tweaks">
+  <h5>Tweaks</h5>
+  <div class="group">
+    <label>Accent</label>
+    <div class="swatches" id="sw-accent"></div>
+  </div>
+  <div class="group">
+    <label>Accent placement</label>
+    <div class="seg" id="sw-place">
+      <button data-v="cta">CTA</button>
+      <button data-v="none">None</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "bone",
+    "place": "cta"
+  }/*EDITMODE-END*/;
+
+  const ACCENTS = {
+    bone:  '#efe9dc',
+    blue:  '#4d7cff',
+    amber: '#d97706',
+    ember: '#e8543a'
+  };
+
+  const state = { ...TWEAK_DEFAULTS };
+
+  function applyAll() {
+    const color = ACCENTS[state.accent] || ACCENTS.bone;
+    document.documentElement.style.setProperty('--accent', color);
+    renderTweaks();
+  }
+
+  function renderTweaks() {
+    const wrap = document.getElementById('sw-accent');
+    wrap.innerHTML = '';
+    Object.entries(ACCENTS).forEach(([k, v]) => {
+      const b = document.createElement('button');
+      b.className = 'sw' + (state.accent === k ? ' on' : '');
+      b.style.background = v;
+      b.onclick = () => { state.accent = k; applyAll(); persist(); };
+      wrap.appendChild(b);
+    });
+    document.querySelectorAll('#sw-place button').forEach(b => {
+      b.classList.toggle('on', b.dataset.v === state.place);
+      b.onclick = () => { state.place = b.dataset.v; applyAll(); persist(); };
+    });
+  }
+
+  function persist() {
+    try {
+      window.parent.postMessage({ type: '__edit_mode_set_keys',
+        edits: { accent: state.accent, place: state.place }}, '*');
+    } catch(e) {}
+  }
+
+  window.addEventListener('message', (e) => {
+    if (!e.data) return;
+    if (e.data.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('visible');
+    else if (e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('visible');
+  });
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
+
+  applyAll();
+</script>
+
+
+</section></body></html>
