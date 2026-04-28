@@ -442,15 +442,15 @@
 
   .feature-frame {
     position: relative;
-    aspect-ratio: 4/5;
+    aspect-ratio: 9/16;
     background: #050505;
     overflow: hidden;
   }
-  .feature-frame .plate {
+  .feature-frame video {
     position: absolute; inset: 0;
-    background-image: url("assets/images/asset-02.png");
-    background-size: cover;
-    background-position: 58% center;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
     filter: grayscale(0.4) contrast(1.04) brightness(0.82);
   }
   .feature-frame .frame-label {
@@ -1035,9 +1035,9 @@
   </aside>
 
   <figure class="feature-frame" aria-hidden="true">
-    <div class="plate"></div>
+    <video src="assets/videos/hero.mp4" autoplay muted loop playsinline></video>
     <span class="frame-num">Frame 1 / 1</span>
-    <span class="frame-label">Still · dir. M. Okafor</span>
+    <span class="frame-label">City Llama · MMXXVI</span>
   </figure>
 
   <div class="feature-title">
