@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — City Llama</title>
+<link rel="icon" type="image/png" href="assets/images/asset-01.png">
+<style>
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-02.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-04.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/asset-17.woff") format('woff');
+}
+
+:root {
+  --bg: #000000;
+  --fg: #efe9dc;
+  --fg-2: #bdb6a7;
+  --fg-dim: #7e7a71;
+  --fg-mute: #44413c;
+  --line: #1c1b19;
+  --line-2: #2a2824;
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--fg); color: var(--bg); }
+
+/* ── MASTHEAD ── */
+.mast {
+  position: relative;
+  padding: 28px 48px 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.mast .left, .mast .right {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  display: flex;
+  gap: 48px;
+}
+.mast .right { justify-content: flex-end; }
+.mast .left a, .mast .right a { transition: color .3s; }
+.mast .left a:hover, .mast .right a:hover { color: var(--fg); }
+.mast .wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 16px;
+}
+.mast .wordmark .mark {
+  width: 52px; height: 52px;
+  background-image: url("assets/images/asset-01.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.96;
+}
+.mast .wordmark .text {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 5.2vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+}
+.mast .wordmark em { font-style: italic; }
+.mast-strip {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  padding: 14px 48px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.mast-strip .c { text-align: center; }
+.mast-strip .r { text-align: right; }
+
+/* ── OPENING ── */
+.opening {
+  padding: 120px 48px 100px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.opening-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.opening-head h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(64px, 9vw, 148px);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+.opening-head h1 em { font-style: italic; }
+.opening-head .byline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--fg-dim);
+  margin-top: 32px;
+}
+
+/* ── ESSAY ── */
+.essay {
+  padding: 120px 48px 160px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+}
+.essay-aside {
+  padding-top: 12px;
+  position: sticky;
+  top: 48px;
+  align-self: start;
+}
+.essay-aside .kicker {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 28px;
+}
+.essay-aside .credentials {
+  display: grid;
+  gap: 16px;
+  margin-top: 48px;
+}
+.essay-aside .cred-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.essay-aside .cred-value {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--fg-2);
+  line-height: 1.4;
+}
+.essay-aside .cred-value em { font-style: italic; }
+
+.essay-body {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  max-width: 52ch;
+}
+.essay-body p { margin-bottom: 1.3em; }
+.essay-body p:first-of-type {
+  font-size: 30px;
+  line-height: 1.4;
+  color: var(--fg);
+}
+.essay-body p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 110px;
+  line-height: 0.85;
+  float: left;
+  padding: 8px 14px 0 0;
+  color: var(--fg);
+}
+.essay-body em { font-style: italic; color: var(--fg); }
+.essay-body .sig {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-top: 64px;
+  display: block;
+}
+
+/* ── PULL QUOTE ── */
+.pull {
+  padding: 140px 48px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pull blockquote {
+  max-width: 820px;
+  text-align: center;
+}
+.pull blockquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+.pull blockquote cite {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-top: 40px;
+  font-style: normal;
+}
+
+/* ── PHOTO ── */
+.photo-section {
+  padding: 0 48px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.photo-frame {
+  grid-column: 2;
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #050505;
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(0.35) contrast(1.06) brightness(0.85);
+}
+.photo-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg);
+  z-index: 2;
+}
+
+/* ── BIO STRIP ── */
+.bio-strip {
+  padding: 80px 48px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+}
+.bio-item .bio-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 14px;
+}
+.bio-item .bio-value {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--fg);
+}
+.bio-item .bio-value em { font-style: italic; color: var(--fg-2); }
+
+/* ── CONTACT CTA ── */
+.about-contact {
+  padding: 160px 48px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  display: grid;
+  gap: 40px;
+}
+.about-contact h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+.about-contact h2 em { font-style: italic; color: var(--fg-2); }
+.about-contact .contact-email {
+  font-family: var(--serif);
+  font-size: clamp(20px, 3vw, 36px);
+  color: var(--fg-2);
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--line-2);
+  display: inline-block;
+  padding-bottom: 10px;
+  transition: color .3s, border-color .3s;
+}
+.about-contact .contact-email:hover { color: var(--fg); border-color: var(--fg); }
+
+/* ── COLOPHON ── */
+.colophon {
+  padding: 80px 48px 40px;
+}
+.colophon-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.colophon-bottom .c { text-align: center; }
+.colophon-bottom .r { text-align: right; }
+.colophon-wordmark {
+  font-family: var(--serif);
+  font-size: clamp(80px, 16vw, 280px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-align: center;
+  padding: 80px 0 20px;
+  color: var(--fg);
+}
+.colophon-wordmark em { font-style: italic; }
+
+/* ── CURSOR ── */
+.has-custom-cursor * { cursor: none !important; }
+#cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--fg);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: width .35s cubic-bezier(.2,.7,.2,1),
+              height .35s cubic-bezier(.2,.7,.2,1),
+              border-radius .35s cubic-bezier(.2,.7,.2,1),
+              opacity .3s ease;
+}
+#cursor.active { opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
+  .mast .left, .mast .right { display: none; }
+  .mast-strip { padding: 10px 20px; }
+  .mast-strip .l, .mast-strip .r { display: none; }
+
+  .opening { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 32px; }
+  .essay { padding: 80px 20px 100px; grid-template-columns: 1fr; gap: 48px; }
+  .essay-aside { position: static; }
+  .pull { padding: 80px 20px; }
+  .photo-section { padding: 0 20px; grid-template-columns: 1fr; }
+  .photo-frame { grid-column: 1; }
+  .bio-strip { padding: 56px 20px; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .about-contact { padding: 100px 20px; }
+  .colophon { padding: 48px 20px 24px; }
+  .colophon-bottom { grid-template-columns: 1fr; gap: 16px; }
+  .colophon-bottom .c, .colophon-bottom .r { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <nav class="left">
+    <a href="index.html#index">Work</a>
+    <a href="index.html#notes">Notes</a>
+  </nav>
+  <div class="wordmark">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="text">City <em>Llama</em></span>
+  </div>
+  <nav class="right">
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="mast-strip">
+  <span class="l">Vol. XXVI · Spring Quarterly</span>
+  <span class="c">A Film &amp; Strategy Studio · Est. Brooklyn MMXXI</span>
+  <span class="r" id="clock"></span>
+</div>
+
+<!-- OPENING -->
+<section class="opening">
+  <div class="opening-label">§ 01 — About</div>
+  <div class="opening-head">
+    <h1>On <em>making<br>less.</em></h1>
+    <div class="byline">A short essay by the founder, reprinted from the MMXXVI spring quarterly.</div>
+  </div>
+</section>
+
+<!-- ESSAY -->
+<section class="essay">
+  <div class="essay-body">
+    <p>
+      We started City Llama because of two things we kept seeing, and not seeing each other. Brands hiring agencies that didn't really understand story. Filmmakers pushed out of the room the moment the word strategy entered it. Both rooms full of smart people. Neither room talking to the other.
+    </p>
+    <p>
+      So we built one room.
+    </p>
+    <p>
+      Our rule is small. We take on a short list of films each year, some under a brand name, some under their own, and we stay in the room from the first page of the treatment to the last minute of the color. The people who write it, shoot it. The people who shoot it, cut it. We don't hand work off.
+    </p>
+    <p>
+      Strategy belongs in the same room. The AI tools we build are not a separate offering. They are how we listen. To audience, to archive, to the language of a place. We use them the way a cinematographer uses a light meter. <em>Quietly. Before the take.</em> Not to replace the eye. To check it.
+    </p>
+    <p>
+      What we will not do: work we'd be embarrassed to screen in a room of filmmakers we respect.
+    </p>
+    <p>
+      What we will do: read every brief, reply within the week, say no often, and yes with our whole weight behind it.
+    </p>
+    <p>
+      Brooklyn is a city of small rooms doing serious work. We're trying to be one of them.
+    </p>
+    <span class="sig">— Alex Argiles, Brooklyn, MMXXVI</span>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull">
+  <blockquote>
+    <p>"The gap between a great story and a scaled content operation isn't creative — it's infrastructure."</p>
+    <cite>Alex Argiles · Founder, City Llama</cite>
+  </blockquote>
+</div>
+
+<!-- PHOTO -->
+<div class="photo-section">
+  <figure class="photo-frame">
+    <img src="assets/images/emmy.jpg" alt="Alex Argiles accepting the New York Emmy Award, 2025">
+    <span class="photo-caption">Alex Argiles · 68th New York Emmy Awards · MMXXV</span>
+  </figure>
+</div>
+
+<!-- BIO STRIP -->
+<div class="bio-strip">
+  <div class="bio-item">
+    <div class="bio-label">Name</div>
+    <div class="bio-value">Alex Argiles</div>
+  </div>
+  <div class="bio-item">
+    <div class="bio-label">Title</div>
+    <div class="bio-value">Founder &amp; <em>Producer</em></div>
+  </div>
+  <div class="bio-item">
+    <div class="bio-label">Recognition</div>
+    <div class="bio-value">New York <em>Emmy Award</em> · MMXXV</div>
+  </div>
+  <div class="bio-item">
+    <div class="bio-label">Studio</div>
+    <div class="bio-value">City Llama · Brooklyn</div>
+  </div>
+</div>
+
+<!-- CONTACT CTA -->
+<div class="about-contact">
+  <h2>Write <em>to us.</em></h2>
+  <a class="contact-email" href="mailto:info@cityllamamarketing.com">info@cityllamamarketing.com</a>
+</div>
+
+<!-- COLOPHON -->
+<footer class="colophon">
+  <div class="colophon-wordmark">City <em>Llama</em></div>
+  <div class="colophon-bottom">
+    <span class="l">© MMXXVI · City Llama</span>
+    <span class="c">Set in Instrument Serif &amp; JetBrains Mono</span>
+    <span class="r">Brooklyn — New York</span>
+  </div>
+</footer>
+
+<div id="cursor"></div>
+
+<script>
+  // Live clock
+  (function () {
+    const el = document.getElementById('clock');
+    function tick() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+      });
+      const tz = now.toLocaleDateString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' })
+        .split(', ')[1] || 'EST';
+      el.textContent = time + ' ' + tz;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // Custom cursor
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const cursor = document.getElementById('cursor');
+    document.body.classList.add('has-custom-cursor');
+
+    let mouseX = -200, mouseY = -200;
+    let curX = -200, curY = -200;
+    let magnetEl = null;
+    const EASE = 0.10;
+    const EASE_MAGNET = 0.18;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.classList.add('active');
+    });
+    document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+
+    // Magnetic nav links
+    document.querySelectorAll('.mast .left a, .mast .right a, .contact-email').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        magnetEl = el;
+        const r = el.getBoundingClientRect();
+        cursor.style.width        = (r.width  + 24) + 'px';
+        cursor.style.height       = (r.height + 16) + 'px';
+        cursor.style.borderRadius = '4px';
+      });
+      el.addEventListener('mouseleave', () => {
+        magnetEl = null;
+        cursor.style.width        = '48px';
+        cursor.style.height       = '48px';
+        cursor.style.borderRadius = '50%';
+      });
+    });
+
+    (function animate() {
+      const ease = magnetEl ? EASE_MAGNET : EASE;
+      let tx = mouseX, ty = mouseY;
+      if (magnetEl) {
+        const r = magnetEl.getBoundingClientRect();
+        tx = r.left + r.width  / 2;
+        ty = r.top  + r.height / 2;
+      }
+      curX += (tx - curX) * ease;
+      curY += (ty - curY) * ease;
+      const w = parseFloat(cursor.style.width  || 48);
+      const h = parseFloat(cursor.style.height || 48);
+      cursor.style.left = (curX - w / 2) + 'px';
+      cursor.style.top  = (curY - h / 2) + 'px';
+      requestAnimationFrame(animate);
+    })();
+  }
+</script>
+
+</body>
+</html>
