@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work — City Llama</title>
-<meta name="description" content="The active development slate — City Llama MMXXVI–MMXXVII program. Documentary, narrative short, brand films with cultural intent.">
-<meta property="og:title" content="Work — City Llama">
-<meta property="og:description" content="The active development slate — City Llama MMXXVI–MMXXVII program.">
+<title>Notes — City Llama</title>
+<meta name="description" content="The City Llama quarterly. Essays on film, strategy, and the infrastructure of good work.">
+<meta property="og:title" content="Notes — City Llama">
+<meta property="og:description" content="Essays on film, strategy, and the infrastructure of good work.">
 <meta property="og:image" content="assets/images/og.jpg">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://cityllamamarketing.com/work">
+<meta property="og:url" content="https://cityllamamarketing.com/notes">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Work — City Llama">
-<meta name="twitter:description" content="The active development slate — City Llama MMXXVI–MMXXVII program.">
+<meta name="twitter:title" content="Notes — City Llama">
+<meta name="twitter:description" content="Essays on film, strategy, and the infrastructure of good work.">
 <meta name="twitter:image" content="assets/images/og.jpg">
 <link rel="icon" type="image/png" href="assets/images/asset-01.png">
 <style>
@@ -45,7 +45,6 @@
   --fg-dim: #7e7a71;
   --fg-mute: #44413c;
   --line: #1c1b19;
-  --line-2: #2a2824;
   --serif: 'Instrument Serif', 'Times New Roman', serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
@@ -64,6 +63,7 @@ img { display: block; max-width: 100%; }
 
 /* ── MASTHEAD ── */
 .mast {
+  position: relative;
   padding: 28px 48px 0;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -124,10 +124,11 @@ img { display: block; max-width: 100%; }
 .opening {
   padding: 120px 48px 100px;
   border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 48px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
 }
 .opening-label {
   font-family: var(--mono);
@@ -136,186 +137,153 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   color: var(--fg-dim);
 }
-.opening-head {
-  grid-column: 2;
-}
-.opening-head h1 {
+.opening h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(72px, 10vw, 160px);
+  font-size: clamp(72px, 12vw, 172px);
   line-height: 0.88;
   letter-spacing: -0.03em;
   color: var(--fg);
 }
-.opening-head h1 em { font-style: italic; }
-.opening-head .sub {
+.opening h1 em { font-style: italic; }
+.opening-desc {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.5;
   color: var(--fg-dim);
-  margin-top: 32px;
+  max-width: 44ch;
 }
 
-/* ── STATEMENT ── */
-.statement {
-  padding: 100px 48px 80px;
+/* ── NOTE LIST ── */
+.note-list {
   border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: center;
 }
-.statement-inner {
-  max-width: 640px;
-  text-align: center;
-  display: grid;
-  gap: 24px;
-}
-.statement-inner .s-label {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-}
-.statement-inner p {
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.55;
-  color: var(--fg-2);
-}
-.statement-inner p em { font-style: italic; color: var(--fg); }
 
-/* ── SLATE ── */
-.slate {
-  padding: 0 48px;
-  border-bottom: 1px solid var(--line);
-}
-.slate-head {
+.note-row {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 32px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--line-2);
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-}
-.project {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  padding: 48px 0;
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: 80px 1fr auto;
   align-items: center;
-  transition: padding .4s cubic-bezier(.2,.7,.2,1);
+  gap: 40px;
+  padding: 40px 48px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: background .25s;
+  position: relative;
 }
-.project:last-child { border-bottom: 0; }
-.project:hover { padding: 60px 0; }
-.project-title {
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 64px);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--fg);
-}
-.project-title em { font-style: italic; }
-.project-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-}
-.project-status {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.36em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-}
-.project-year {
+.note-row:last-child { border-bottom: none; }
+.note-row:hover { background: #0a0a09; }
+
+.note-num {
   font-family: var(--mono);
   font-size: 9.5px;
   letter-spacing: 0.32em;
+  text-transform: uppercase;
   color: var(--fg-mute);
+  align-self: start;
+  padding-top: 6px;
 }
 
-/* ── BRIEF CTA ── */
-.brief-section {
-  padding: 160px 48px;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: center;
-}
-.brief-inner {
-  max-width: 640px;
-  text-align: center;
-  display: grid;
-  gap: 40px;
-}
-.brief-inner h2 {
+.note-body { display: flex; flex-direction: column; gap: 12px; }
+
+.note-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(44px, 6vw, 96px);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-size: clamp(26px, 3.5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--fg);
+  transition: color .25s;
 }
-.brief-inner h2 em { font-style: italic; color: var(--fg-2); }
-.brief-inner p {
+.note-title em { font-style: italic; }
+.note-row:hover .note-title { color: var(--fg-2); }
+
+.note-desc {
   font-family: var(--serif);
-  font-size: 20px;
-  line-height: 1.6;
-  color: var(--fg-2);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--fg-dim);
+  max-width: 58ch;
 }
-.brief-cta {
-  display: inline-block;
-  margin-top: 12px;
+
+.note-meta {
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.38em;
+  font-size: 9px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--fg-2);
+  color: var(--fg-mute);
+  display: flex;
+  gap: 24px;
+  margin-top: 4px;
 }
-.brief-cta .cta-text {
-  border-bottom: 1px solid transparent;
-  transition: border-color .3s ease;
-  padding-bottom: 2px;
+
+.note-arrow {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--fg-mute);
+  transition: color .25s, transform .25s;
+  align-self: center;
 }
-.brief-cta:hover .cta-text { border-color: var(--fg-2); }
+.note-row:hover .note-arrow {
+  color: var(--fg);
+  transform: translateX(6px);
+}
+
+/* Forthcoming state */
+.note-row.forthcoming {
+  cursor: default;
+  opacity: 0.45;
+}
+.note-row.forthcoming:hover { background: transparent; }
+.note-row.forthcoming .note-title { color: var(--fg-dim); }
+.note-row.forthcoming .note-arrow { display: none; }
+.note-forthcoming-badge {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  border: 1px solid var(--fg-mute);
+  padding: 3px 8px;
+  align-self: start;
+  margin-top: 4px;
+  display: inline-block;
+}
 
 /* ── COLOPHON ── */
-.colophon { padding: 80px 48px 40px; }
+.colophon {
+  padding: 80px 48px 28px;
+  border-bottom: 1px solid var(--line);
+}
 .colophon-wordmark {
   font-family: var(--serif);
-  font-size: clamp(80px, 16vw, 280px);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  text-align: center;
-  padding: 0 0 20px;
-  color: var(--fg);
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: var(--fg-mute);
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 28px;
 }
 .colophon-wordmark em { font-style: italic; }
 .colophon-bottom {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr auto 1fr;
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 9px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--fg-mute);
-  padding-top: 40px;
-  border-top: 1px solid var(--line);
 }
 .colophon-bottom .c { text-align: center; }
 .colophon-bottom .r { text-align: right; }
 
 /* ── CURSOR ── */
-.has-custom-cursor * { cursor: none !important; }
+body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
 #cursor {
   position: fixed;
-  top: 0; left: 0;
   width: 48px; height: 48px;
   border-radius: 50%;
   background: var(--fg);
@@ -329,22 +297,6 @@ img { display: block; max-width: 100%; }
               opacity .3s ease;
 }
 #cursor.active { opacity: 1; }
-#cursor-label {
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.36em;
-  text-transform: uppercase;
-  color: var(--fg);
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity .2s ease;
-  transform: translateY(-50%);
-}
-#cursor-label.visible { opacity: 1; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
@@ -353,15 +305,15 @@ img { display: block; max-width: 100%; }
   .mast-strip { padding: 10px 20px; grid-template-columns: 1fr; }
   .mast-strip .l, .mast-strip .r { display: none; }
   .mast-strip .c { text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .opening { padding: 64px 20px 80px; grid-template-columns: 1fr; }
-  .opening-head { grid-column: 1; }
-  .statement { padding: 64px 20px; }
-  .slate { padding: 0 20px; }
-  .project { padding: 36px 0; gap: 24px; }
-  .project:hover { padding: 36px 0; }
-  .brief-section { padding: 100px 20px; }
-  .colophon { padding: 48px 20px 24px; }
-  .colophon-bottom { grid-template-columns: 1fr; gap: 16px; }
+
+  .opening { padding: 64px 20px 72px; }
+
+  .note-row { padding: 32px 20px; grid-template-columns: 48px 1fr; gap: 16px; }
+  .note-arrow { display: none; }
+  .note-desc { font-size: 16px; }
+
+  .colophon { padding: 56px 20px 24px; }
+  .colophon-bottom { grid-template-columns: 1fr; gap: 12px; }
   .colophon-bottom .c, .colophon-bottom .r { text-align: left; }
 }
 </style>
@@ -371,8 +323,7 @@ img { display: block; max-width: 100%; }
 <!-- MASTHEAD -->
 <header class="mast">
   <nav class="left">
-    <a href="index.html#index">Work</a>
-    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
     <a href="notes.html">Notes</a>
   </nav>
   <div class="wordmark">
@@ -392,76 +343,57 @@ img { display: block; max-width: 100%; }
 
 <!-- OPENING -->
 <section class="opening">
-  <div class="opening-label">§ 01 — Work</div>
-  <div class="opening-head">
-    <h1>The <em>slate.</em></h1>
-    <div class="sub">MMXXVI — MMXXVII program. Five projects in development.</div>
-  </div>
+  <div class="opening-label">§ 01 — The Quarterly</div>
+  <h1><em>Notes.</em></h1>
+  <p class="opening-desc">Essays on film, strategy, and the infrastructure of good work. Published when we have something worth saying.</p>
 </section>
 
-<!-- STATEMENT -->
-<div class="statement">
-  <div class="statement-inner">
-    <span class="s-label">Current Program</span>
-    <p>No films currently in release. What follows is the active development slate — projects City Llama is producing, writing, or taking to distribution. <em>Each one is in the room.</em></p>
-  </div>
-</div>
+<!-- NOTE LIST -->
+<div class="note-list">
 
-<!-- PROJECT SLATE -->
-<section class="slate">
-  <div class="slate-head">
-    <span>Title</span>
-    <span>Status</span>
-  </div>
+  <!-- Entry 01 -->
+  <a class="note-row" href="about.html">
+    <div class="note-num">No. 01</div>
+    <div class="note-body">
+      <div class="note-title">On <em>making less.</em></div>
+      <div class="note-desc">Why City Llama keeps a short list, stays in the room, and believes strategy belongs next to the camera — not across the hall from it.</div>
+      <div class="note-meta">
+        <span>Spring MMXXVI</span>
+        <span>3 min read</span>
+        <span>Founder's Essay</span>
+      </div>
+    </div>
+    <div class="note-arrow">→</div>
+  </a>
 
-  <div class="project">
-    <div class="project-title">Open the <em>Door</em></div>
-    <div class="project-meta">
-      <span class="project-status">Distribution</span>
-      <span class="project-year">2026</span>
+  <!-- Entry 02 — forthcoming -->
+  <div class="note-row forthcoming">
+    <div class="note-num">No. 02</div>
+    <div class="note-body">
+      <div class="note-title">The <em>brief</em> as a document.</div>
+      <div class="note-desc">What separates a brief that produces great work from one that produces a long email thread. A practical guide.</div>
+      <div class="note-meta">
+        <span>Summer MMXXVI</span>
+        <span>Forthcoming</span>
+      </div>
+      <span class="note-forthcoming-badge">Forthcoming</span>
     </div>
   </div>
 
-  <div class="project">
-    <div class="project-title">The <em>Bet</em></div>
-    <div class="project-meta">
-      <span class="project-status">Script Development</span>
-      <span class="project-year">2026</span>
+  <!-- Entry 03 — forthcoming -->
+  <div class="note-row forthcoming">
+    <div class="note-num">No. 03</div>
+    <div class="note-body">
+      <div class="note-title">AI as <em>light meter.</em></div>
+      <div class="note-desc">How we use machine intelligence the way a cinematographer uses a light meter — quietly, before the take, not instead of the eye.</div>
+      <div class="note-meta">
+        <span>Summer MMXXVI</span>
+        <span>Forthcoming</span>
+      </div>
+      <span class="note-forthcoming-badge">Forthcoming</span>
     </div>
   </div>
 
-  <div class="project">
-    <div class="project-title">Escape From <em>Long Island</em></div>
-    <div class="project-meta">
-      <span class="project-status">Script Development</span>
-      <span class="project-year">2026</span>
-    </div>
-  </div>
-
-  <div class="project">
-    <div class="project-title"><em>Platinum</em></div>
-    <div class="project-meta">
-      <span class="project-status">In Production</span>
-      <span class="project-year">2026</span>
-    </div>
-  </div>
-
-  <div class="project">
-    <div class="project-title">Isla<em>Hub</em></div>
-    <div class="project-meta">
-      <span class="project-status">In Development</span>
-      <span class="project-year">2026</span>
-    </div>
-  </div>
-</section>
-
-<!-- BRIEF CTA -->
-<div class="brief-section">
-  <div class="brief-inner">
-    <h2>Bring us <em>a brief.</em></h2>
-    <p>Documentary, narrative short, brand films with cultural intent. Every inquiry receives a reply within the week.</p>
-    <a class="brief-cta" href="index.html#contact" aria-label="Submit a brief — go to contact section">→ <span class="cta-text">Submit a Brief</span></a>
-  </div>
 </div>
 
 <!-- COLOPHON -->
@@ -475,7 +407,6 @@ img { display: block; max-width: 100%; }
 </footer>
 
 <div id="cursor"></div>
-<div id="cursor-label">View →</div>
 
 <script>
   // Live clock
@@ -488,9 +419,8 @@ img { display: block; max-width: 100%; }
         hour: '2-digit', minute: '2-digit', second: '2-digit',
         hour12: false
       });
-      const tz = now.toLocaleDateString('en-US', {
-        timeZone: 'America/New_York', timeZoneName: 'short'
-      }).split(', ')[1] || 'EST';
+      const tz = now.toLocaleDateString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' })
+        .split(', ')[1] || 'EST';
       el.textContent = time + ' ' + tz;
     }
     tick();
@@ -500,25 +430,23 @@ img { display: block; max-width: 100%; }
   // Custom cursor
   if (window.matchMedia('(pointer: fine)').matches) {
     const cursor = document.getElementById('cursor');
-    const label  = document.getElementById('cursor-label');
     document.body.classList.add('has-custom-cursor');
 
     let mouseX = -200, mouseY = -200;
     let curX = -200, curY = -200;
     let magnetEl = null;
-    const EASE = 0.10, EASE_MAGNET = 0.18;
+    const EASE = 0.10;
+    const EASE_MAGNET = 0.18;
 
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
       cursor.classList.add('active');
-      label.style.left = (mouseX + 32) + 'px';
-      label.style.top  = mouseY + 'px';
     });
     document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 
-    // Magnetic: nav + brief CTA
-    document.querySelectorAll('.mast .left a, .mast .right a, .brief-cta').forEach(el => {
+    // Magnetic nav links
+    document.querySelectorAll('.mast .left a, .mast .right a').forEach(el => {
       el.addEventListener('mouseenter', () => {
         magnetEl = el;
         const r = el.getBoundingClientRect();
@@ -534,17 +462,16 @@ img { display: block; max-width: 100%; }
       });
     });
 
-    // Expand + label on project rows
-    document.querySelectorAll('.project').forEach(el => {
+    // Expand on note rows
+    document.querySelectorAll('.note-row:not(.forthcoming)').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.width        = '72px';
         cursor.style.height       = '72px';
-        label.classList.add('visible');
+        cursor.style.borderRadius = '50%';
       });
       el.addEventListener('mouseleave', () => {
         cursor.style.width        = '48px';
         cursor.style.height       = '48px';
-        label.classList.remove('visible');
       });
     });
 
