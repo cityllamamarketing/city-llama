@@ -2,7 +2,17 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>City Llama — Vol. XXVI</title>
+<title>City Llama — Film. Strategy. Cut.</title>
+<meta name="description" content="City Llama is a Brooklyn studio for film production and AI-powered strategy. Concept to Cut. Distribution. AI & Automation.">
+<meta property="og:title" content="City Llama — Film. Strategy. Cut.">
+<meta property="og:description" content="A Brooklyn studio for film production and AI-powered strategy. Est. MMXXI.">
+<meta property="og:image" content="assets/images/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cityllamamarketing.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="City Llama — Film. Strategy. Cut.">
+<meta name="twitter:description" content="A Brooklyn studio for film production and AI-powered strategy. Est. MMXXI.">
+<meta name="twitter:image" content="assets/images/og.jpg">
 <link rel="icon" type="image/png" href="assets/images/asset-01.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -559,6 +569,9 @@
     color: var(--fg);
   }
   .section-mast .name em { font-style: italic; }
+  .section-mast--center { justify-items: center; text-align: center; }
+  .section-mast--center .count { text-align: center; }
+
   .section-mast .count {
     text-align: right;
     font-family: var(--mono);
@@ -569,88 +582,66 @@
   }
 
   .index {
-    padding: 0 48px;
+    padding: 160px 48px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
   }
-  .index-head {
+  .wall-card {
+    max-width: 640px;
+    text-align: center;
     display: grid;
-    grid-template-columns: 80px 1fr 1fr 140px 100px 80px;
     gap: 32px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--line-2);
+  }
+  .wall-card .card-label {
     font-family: var(--mono);
     font-size: 9.5px;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.42em;
     text-transform: uppercase;
     color: var(--fg-dim);
+    font-variant: small-caps;
   }
-  .index-head .r { text-align: right; }
-
-  .entry {
-    display: grid;
-    grid-template-columns: 80px 1fr 1fr 140px 100px 80px;
-    gap: 32px;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    position: relative;
-    transition: padding .5s cubic-bezier(.2,.7,.2,1);
-  }
-  .entry:hover {
-    padding: 56px 0;
-  }
-  .entry .spine {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--fg-dim);
-  }
-  .entry .title {
+  .wall-card h2 {
     font-family: var(--serif);
-    font-size: clamp(28px, 3.4vw, 52px);
-    line-height: 1;
+    font-weight: 400;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--fg);
   }
-  .entry .title em { font-style: italic; }
-  .entry .director {
+  .wall-card h2 em { font-style: italic; }
+  .wall-card .card-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--line-2);
+    margin: 0 auto;
+  }
+  .wall-card p {
     font-family: var(--serif);
-    font-style: italic;
     font-size: 20px;
+    line-height: 1.6;
     color: var(--fg-2);
+    max-width: 48ch;
+    margin: 0 auto;
   }
-  .entry .format {
+  .wall-card .brief-cta {
+    display: inline-block;
+    margin-top: 52px;
     font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.24em;
+    font-size: 11.5px;
+    letter-spacing: 0.38em;
     text-transform: uppercase;
-    color: var(--fg-dim);
-  }
-  .entry .year {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
     color: var(--fg-2);
+    text-decoration: none;
   }
-  .entry .status {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--fg-dim);
-    text-align: right;
+  .wall-card .brief-cta .cta-text {
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s ease;
+    padding-bottom: 2px;
   }
-  .entry-more {
-    padding: 40px 0 80px;
-    text-align: center;
-  }
-  .entry-more a {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--fg);
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--fg);
+  .wall-card .brief-cta:hover .cta-text {
+    border-color: var(--fg-dim);
   }
 
   /* ================== NOTES ================== */
@@ -915,6 +906,71 @@
   .colophon-bottom .c { text-align: center; }
   .colophon-bottom .r { text-align: right; }
 
+  /* ================== LOADER ================== */
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: opacity .5s ease;
+  }
+  #loader.fade-out { opacity: 0; }
+  #loader.done { display: none; }
+  #loader-word {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    opacity: 0;
+    transition: opacity .45s ease;
+  }
+  #loader-word em { font-style: italic; }
+  #loader-word.visible { opacity: 1; }
+
+  /* ================== CURSOR ================== */
+  .has-custom-cursor * { cursor: none !important; }
+
+  #cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--fg);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transition: width .35s cubic-bezier(.2,.7,.2,1),
+                height .35s cubic-bezier(.2,.7,.2,1),
+                border-radius .35s cubic-bezier(.2,.7,.2,1),
+                opacity .3s ease;
+  }
+  #cursor.active { opacity: 1; }
+  #cursor.expanded { width: 72px; height: 72px; }
+
+  #cursor-label {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--fg);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .2s ease;
+    transform: translateY(-50%);
+  }
+  #cursor-label.visible { opacity: 1; }
+
   /* ================== TWEAKS ================== */
   #tweaks {
     position: fixed; right: 20px; bottom: 20px; z-index: 200;
@@ -939,8 +995,9 @@
     .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
     .mast .left, .mast .right { display: none; }
     .mast .wordmark { font-size: 52px; padding-bottom: 12px; }
-    .mast-strip { padding: 10px 20px; font-size: 9px; }
+    .mast-strip { padding: 10px 20px; font-size: 9px; grid-template-columns: 1fr; }
     .mast-strip .l, .mast-strip .r { display: none; }
+    .mast-strip .c { text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .feature { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 48px; }
     .feature-meta { padding-top: 0; }
@@ -968,6 +1025,7 @@
     .notes-head { position: static; }
     .notes-body { font-size: 20px; }
     .notes-body p:first-of-type { font-size: 24px; }
+    .notes-body p:first-of-type::first-letter { font-size: 64px; padding: 4px 8px 0 0; }
 
     .room { grid-template-columns: 1fr; gap: 24px; padding: 56px 20px; }
 
@@ -985,11 +1043,13 @@
 <body>
 
 
+<div id="loader"><span id="loader-word">City <em>Llama</em></span></div>
+
 <!-- ============ MASTHEAD ============ -->
 <header class="mast">
   <nav class="left">
-    <a href="#index">Index</a>
-    <a href="#rooms">Rooms</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
     <a href="#notes">Notes</a>
   </nav>
   <div class="wordmark">
@@ -998,15 +1058,13 @@
   </div>
   <nav class="right">
     <a href="#contact">Contact</a>
-    <a href="#">Reel</a>
-    <a href="#">Press</a>
   </nav>
 </header>
 
 <div class="mast-strip">
   <span class="l">Vol. XXVI · Spring Quarterly</span>
-  <span class="c">A Film &amp; Story Program · Est. Brooklyn MMXXI</span>
-  <span class="r">No. 004</span>
+  <span class="c">A Film &amp; Strategy Studio · Est. Brooklyn MMXXI</span>
+  <span class="r" id="clock"></span>
 </div>
 
 <!-- ============ FEATURE (single held shot) ============ -->
@@ -1017,107 +1075,61 @@
       <span class="stamp">A City Llama<br>Production · MMXXVI</span>
     </div>
     <div class="row">
-      <span class="k">Now Showing</span>
-      <span class="v">No. 004 <em>— The Llama</em></span>
+      <span class="k">Studio</span>
+      <span class="v"><em>City Llama</em></span>
     </div>
     <div class="row">
-      <span class="k">Runtime</span>
-      <span class="v">14 min. 22 sec.</span>
+      <span class="k">Founded</span>
+      <span class="v">MMXXI</span>
     </div>
     <div class="row">
-      <span class="k">Format</span>
-      <span class="v">35mm · 2.39:1</span>
+      <span class="k">Based</span>
+      <span class="v">Brooklyn, New York</span>
     </div>
     <div class="row">
-      <span class="k">Language</span>
-      <span class="v"><em>English &amp; Quechua</em></span>
+      <span class="k">Discipline</span>
+      <span class="v"><em>Film &amp; Strategy</em></span>
+    </div>
+    <div class="row">
+      <span class="k">Status</span>
+      <span class="v">Open for Briefs</span>
     </div>
   </aside>
 
   <figure class="feature-frame" aria-hidden="true">
     <div class="plate"></div>
     <span class="frame-num">Frame 1 / 1</span>
-    <span class="frame-label">Still · dir. M. Okafor</span>
+    <span class="frame-label">City Llama · MMXXVI</span>
   </figure>
 
   <div class="feature-title">
-    <div class="feature-spine">Vol. XXVI · No. 004 · Spring 2026</div>
-    <h1>The <em>Llama.</em></h1>
-    <div class="director">A short film by Marisol Okafor, produced in residence at City Llama.</div>
+    <div class="feature-spine">Vol. XXVI · Spring 2026 · Brooklyn</div>
+    <h1>City <em>Llama.</em></h1>
+    <div class="director">Film. Strategy. Cut.</div>
     <p class="synopsis">
-      Somewhere between Lima and Queens, a boy inherits an animal he did not ask for, and a city that does not want him. A held shot, a long walk, and a conversation about what we carry across borders.
+      We stay in the room from the first page of the treatment to the last minute of the color. Film-quality production. AI-powered strategy. For brands built to last.
     </p>
     <a class="watch" href="#">
       <span class="dot"></span>
-      <span>Watch — 14:22</span>
+      <span>See our work</span>
     </a>
   </div>
 </section>
 
 <!-- ============ INDEX OF FILMS ============ -->
-<div class="section-mast">
+<div class="section-mast section-mast--center">
   <span class="num">§ 02 — Index</span>
-  <h2 class="name">Films &amp; <em>moving pictures</em>.</h2>
-  <span class="count">MMXXI — MMXXVI · 48 titles</span>
+  <h2 class="name">Work &amp; <em>projects</em>.</h2>
+  <span class="count">MMXXI — MMXXVI</span>
 </div>
 
 <section class="index" id="index" data-screen-label="02 Index">
-  <div class="index-head">
-    <span>No.</span>
-    <span>Title</span>
-    <span>Director</span>
-    <span>Format</span>
-    <span>Year</span>
-    <span class="r">Status</span>
-  </div>
-
-  <a class="entry" href="#">
-    <span class="spine">004</span>
-    <span class="title">The <em>Llama</em></span>
-    <span class="director">Marisol Okafor</span>
-    <span class="format">Short · 35mm</span>
-    <span class="year">2026</span>
-    <span class="status">Now Showing</span>
-  </a>
-
-  <a class="entry" href="#">
-    <span class="spine">003</span>
-    <span class="title">The <em>Bet</em></span>
-    <span class="director">JaySix</span>
-    <span class="format">Short · Digital</span>
-    <span class="year">2026</span>
-    <span class="status">Greenlit</span>
-  </a>
-
-  <a class="entry" href="#">
-    <span class="spine">002</span>
-    <span class="title">Open the <em>Door</em></span>
-    <span class="director">Lena Park</span>
-    <span class="format">Feature · 4K</span>
-    <span class="year">2026</span>
-    <span class="status">In Post</span>
-  </a>
-
-  <a class="entry" href="#">
-    <span class="spine">001</span>
-    <span class="title">Escape From <em>Long Island</em></span>
-    <span class="director">A. Cruz &amp; D. Hall</span>
-    <span class="format">Series · 16mm</span>
-    <span class="year">2026</span>
-    <span class="status">Shooting</span>
-  </a>
-
-  <a class="entry" href="#">
-    <span class="spine">000</span>
-    <span class="title">Isla<em>Hub</em></span>
-    <span class="director">Studio collective</span>
-    <span class="format">Doc · HD</span>
-    <span class="year">2025</span>
-    <span class="status">Pitching</span>
-  </a>
-
-  <div class="entry-more">
-    <a href="#">Full index — 48 titles</a>
+  <div class="wall-card">
+    <span class="card-label">Current Program · MMXXVI</span>
+    <h2>No films currently<br><em>in release.</em></h2>
+    <div class="card-rule"></div>
+    <p>City Llama is accepting briefs for the MMXXVI–MMXXVII program. Documentary, narrative short, brand films with cultural intent. Every inquiry receives a reply within the week.</p>
+    <a class="brief-cta" href="#contact" aria-label="Submit a brief — jump to contact section">→ <span class="cta-text">Submit a Brief</span></a>
   </div>
 </section>
 
@@ -1132,21 +1144,27 @@
 
     <div class="notes-body">
       <p>
-        We started City Llama because we were tired of the factory. Tired of work that landed on a brief and died on a brief. Tired of the commercial that won an award no one watched twice.
+        We started City Llama because of two things we kept seeing, and not seeing each other. Brands hiring agencies that didn't really understand story. Filmmakers pushed out of the room the moment the word strategy entered it. Both rooms full of smart people. Neither room talking to the other.
       </p>
       <p>
-        Our rule is small. We take on a short list of films each year — some under a brand name, some under their own — and we stay in the room from the first page of the treatment to the last minute of the color. The people who write it, shoot it. The people who shoot it, cut it. We do not hand work off.
+        So we built one room.
       </p>
       <p>
-        Strategy belongs in the same room. The AI tools we build are not a separate offering; they are how we listen — to audience, to archive, to the language of a place. We use them the way a cinematographer uses a light meter. <em>Quietly. Before the take.</em>
+        Our rule is small. We take on a short list of films each year, some under a brand name, some under their own, and we stay in the room from the first page of the treatment to the last minute of the color. The people who write it, shoot it. The people who shoot it, cut it. We don't hand work off.
       </p>
       <p>
-        What we will not do: pitch decks thicker than a screenplay, cultural moments chased on deadline, anything we would be embarrassed to screen in a room of filmmakers.
+        Strategy belongs in the same room. The AI tools we build are not a separate offering. They are how we listen. To audience, to archive, to the language of a place. We use them the way a cinematographer uses a light meter. <em>Quietly. Before the take.</em> Not to replace the eye. To check it.
       </p>
       <p>
-        What we will do: read every brief. Reply within the week. Say no, often, and yes with our whole weight behind it.
+        What we will not do: work we'd be embarrassed to screen in a room of filmmakers we respect.
       </p>
-      <span class="sig">— The Editors, Brooklyn, MMXXVI</span>
+      <p>
+        What we will do: read every brief, reply within the week, say no often, and yes with our whole weight behind it.
+      </p>
+      <p>
+        Brooklyn is a city of small rooms doing serious work. We're trying to be one of them.
+      </p>
+      <span class="sig">— Alex Argiles, Brooklyn, MMXXVI</span>
     </div>
   </div>
 </section>
@@ -1161,12 +1179,12 @@
 <section class="rooms" id="rooms" data-screen-label="04 Rooms">
   <article class="room">
     <span class="num">I.</span>
-    <h3>The <em>Cutting Room.</em></h3>
+    <h3>Concept <em>to Cut.</em></h3>
     <div class="room-body">
-      <p>Film, commercial, documentary. Concept through final color, carried by the same crew. For brands who want a film, not a video.</p>
+      <p>Film, commercial, documentary. From the first page of the treatment to the last minute of the color — carried by the same crew.</p>
       <div class="list">
         <span>Narrative Short · Feature · Doc</span>
-        <span>Brand Film · Campaign · Director Rep</span>
+        <span>Brand Film · Campaign</span>
         <span>Original IP · Development</span>
       </div>
     </div>
@@ -1174,7 +1192,7 @@
 
   <article class="room">
     <span class="num">II.</span>
-    <h3>The <em>Projection Room.</em></h3>
+    <h3><em>Distribution.</em></h3>
     <div class="room-body">
       <p>A film is a beginning. We plan the release — festival, streamer, socials, screens — so the work lands where its audience already lives.</p>
       <div class="list">
@@ -1187,13 +1205,13 @@
 
   <article class="room">
     <span class="num">III.</span>
-    <h3>The <em>Archive.</em></h3>
+    <h3>AI &amp; <em>Automation.</em></h3>
     <div class="room-body">
-      <p>Our research arm. Audience, language, archive. Custom pipelines and models — quiet tools that let the work speak louder.</p>
+      <p>Custom pipelines and models built for film production and marketing. Quiet tools that let the work speak louder.</p>
       <div class="list">
         <span>Brand Voice &amp; Audience Research</span>
         <span>On-Set Pre-Vis &amp; Lookdev Models</span>
-        <span>Editorial &amp; Strategy Residencies</span>
+        <span>Content Automation &amp; Strategy</span>
       </div>
     </div>
   </article>
@@ -1202,20 +1220,26 @@
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact" data-screen-label="05 Contact">
   <div class="contact-inner">
-    <h2 class="contact-lead">Send us a <em>letter.</em></h2>
+    <h2 class="contact-lead">Write <em>to us.</em></h2>
     <div class="contact-side">
       <div>
         <h6>Correspondence</h6>
-        <a class="email" href="mailto:hello@citylla.ma">hello@citylla.ma</a>
+        <a class="email" href="mailto:info@cityllamamarketing.com">info@cityllamamarketing.com</a>
       </div>
       <div>
         <h6>Studio</h6>
-        <p class="addr">116 Franklin Street<br>Brooklyn, New York 11222<br>By appointment</p>
+        <p class="addr">Brooklyn, New York<br>By appointment</p>
       </div>
       <div>
-        <h6>Reading</h6>
-        <p class="note">We consider new briefs quarterly. Currently reading for Q3 &amp; Q4 2026. We reply to every serious letter within seven days.</p>
+        <h6>Response</h6>
+        <p class="note">We reply within the week.</p>
       </div>
+      <!-- Instagram: add when handle is confirmed
+      <div>
+        <h6>Instagram</h6>
+        <a class="email" href="https://instagram.com/HANDLE">@HANDLE</a>
+      </div>
+      -->
     </div>
   </div>
 </section>
@@ -1224,22 +1248,18 @@
 <footer class="colophon" data-screen-label="06 Colophon">
   <div class="colophon-top">
     <div class="colophon-col">
-      <h6>Offices</h6>
+      <h6>Office</h6>
       <span>Brooklyn <em>(HQ)</em></span>
-      <span>Lima</span>
-      <span>London <em>(corr.)</em></span>
     </div>
     <div class="colophon-col">
-      <h6>Reading</h6>
-      <a href="#">The Quarterly</a>
-      <a href="#">Notes from the Studio</a>
-      <a href="#">Reading List</a>
+      <h6>Services</h6>
+      <span>Concept to Cut</span>
+      <span>Distribution</span>
+      <span>AI &amp; Automation</span>
     </div>
     <div class="colophon-col">
-      <h6>Channels</h6>
-      <a href="#">Instagram</a>
-      <a href="#">Vimeo</a>
-      <a href="#">Criterion Channel</a>
+      <h6>Contact</h6>
+      <a href="mailto:info@cityllamamarketing.com">info@cityllamamarketing.com</a>
     </div>
   </div>
 
@@ -1252,6 +1272,9 @@
     <span class="r">Brooklyn — New York</span>
   </div>
 </footer>
+
+<div id="cursor"></div>
+<div id="cursor-label">View →</div>
 
 <!-- ============ TWEAKS ============ -->
 <div id="tweaks">
@@ -1321,6 +1344,128 @@
   try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
 
   applyAll();
+
+  // Loader — plays once per session
+  (function () {
+    const loader = document.getElementById('loader');
+    const word   = document.getElementById('loader-word');
+
+    if (sessionStorage.getItem('cl-loaded')) {
+      loader.classList.add('done');
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    // Fade wordmark in
+    requestAnimationFrame(() => {
+      setTimeout(() => word.classList.add('visible'), 100);
+
+      // Hold, then fade wordmark out
+      setTimeout(() => word.classList.remove('visible'), 900);
+
+      // Fade overlay out
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+        document.body.style.overflow = '';
+      }, 1400);
+
+      // Remove from flow
+      setTimeout(() => {
+        loader.classList.add('done');
+        sessionStorage.setItem('cl-loaded', '1');
+      }, 1950);
+    });
+  })();
+
+  // Custom cursor — skip touch devices
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const cursor = document.getElementById('cursor');
+    const label  = document.getElementById('cursor-label');
+    document.body.classList.add('has-custom-cursor');
+
+    let mouseX = -200, mouseY = -200;
+    let curX   = -200, curY   = -200;
+    let magnetEl = null;
+    const EASE        = 0.10;
+    const EASE_MAGNET = 0.18;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.classList.add('active');
+      label.style.left = (mouseX + 32) + 'px';
+      label.style.top  = mouseY + 'px';
+    });
+    document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+
+    // Magnetic nav links + brief CTA
+    document.querySelectorAll('.mast .left a, .mast .right a, .brief-cta').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        magnetEl = el;
+        const r = el.getBoundingClientRect();
+        cursor.style.width        = (r.width  + 24) + 'px';
+        cursor.style.height       = (r.height + 16) + 'px';
+        cursor.style.borderRadius = '4px';
+      });
+      el.addEventListener('mouseleave', () => {
+        magnetEl = null;
+        cursor.style.width        = '48px';
+        cursor.style.height       = '48px';
+        cursor.style.borderRadius = '50%';
+      });
+    });
+
+    // Expand on index entries + show label
+    document.querySelectorAll('.entry').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('expanded');
+        label.classList.add('visible');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('expanded');
+        label.classList.remove('visible');
+      });
+    });
+
+    (function animate() {
+      const ease = magnetEl ? EASE_MAGNET : EASE;
+      let tx = mouseX, ty = mouseY;
+
+      if (magnetEl) {
+        const r = magnetEl.getBoundingClientRect();
+        tx = r.left + r.width  / 2;
+        ty = r.top  + r.height / 2;
+      }
+
+      curX += (tx - curX) * ease;
+      curY += (ty - curY) * ease;
+
+      const w = parseFloat(cursor.style.width  || 48);
+      const h = parseFloat(cursor.style.height || 48);
+      cursor.style.left = (curX - w / 2) + 'px';
+      cursor.style.top  = (curY - h / 2) + 'px';
+
+      requestAnimationFrame(animate);
+    })();
+  }
+
+  (function () {
+    const el = document.getElementById('clock');
+    function tick() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+      });
+      const tz = now.toLocaleDateString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' })
+        .split(', ')[1] || 'EST';
+      el.textContent = time + ' ' + tz;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
 </script>
 
 
