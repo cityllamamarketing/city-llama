@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — City Llama</title>
+<meta name="description" content="Alex Argiles is the founder and producer of City Llama, a Brooklyn studio for film and strategy. New York Emmy Award, MMXXV.">
+<meta property="og:title" content="About — City Llama">
+<meta property="og:description" content="Alex Argiles is the founder and producer of City Llama, a Brooklyn studio for film and strategy.">
+<meta property="og:image" content="assets/images/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cityllamamarketing.com/about">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — City Llama">
+<meta name="twitter:description" content="Alex Argiles is the founder and producer of City Llama, a Brooklyn studio for film and strategy.">
+<meta name="twitter:image" content="assets/images/og.jpg">
 <link rel="icon" type="image/png" href="assets/images/asset-01.png">
 <style>
 @font-face {
@@ -390,8 +400,10 @@ img { display: block; max-width: 100%; }
 @media (max-width: 960px) {
   .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
   .mast .left, .mast .right { display: none; }
-  .mast-strip { padding: 10px 20px; }
+  .mast-strip { padding: 10px 20px; grid-template-columns: 1fr; }
   .mast-strip .l, .mast-strip .r { display: none; }
+  .mast-strip .c { text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .essay-body p:first-of-type::first-letter { font-size: 64px; padding: 4px 8px 0 0; }
 
   .opening { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 32px; }
   .essay { padding: 80px 20px 100px; grid-template-columns: 1fr; gap: 48px; }

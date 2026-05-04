@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>OG Image Template — City Llama</title>
+<style>
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  src: url("assets/fonts/asset-02.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/asset-04.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/asset-17.woff") format('woff');
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+}
+
+/* Llama photo — right ~60% of frame */
+.photo {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/images/asset-02.png");
+  background-size: cover;
+  background-position: 65% center;
+  filter: grayscale(0.45) contrast(1.05) brightness(0.75);
+}
+
+/* Gradient: black on left, transparent on right */
+.veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #000000 0%,
+    #000000 38%,
+    rgba(0,0,0,0.82) 52%,
+    rgba(0,0,0,0.3) 72%,
+    rgba(0,0,0,0.1) 100%
+  );
+}
+
+/* Top gradient for breathing room */
+.veil-top {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.4) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0,0,0,0.5) 100%
+  );
+}
+
+/* Content */
+.content {
+  position: absolute;
+  inset: 0;
+  padding: 56px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Top row */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.mark {
+  width: 36px;
+  height: 36px;
+  background-image: url("assets/images/asset-01.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+.studio-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #7e7a71;
+}
+
+/* Center — main wordmark */
+.center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 560px;
+}
+.wordmark {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 112px;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: #efe9dc;
+}
+.wordmark em { font-style: italic; }
+.tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #7e7a71;
+}
+
+/* Bottom row */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #44413c;
+}
+.est {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #44413c;
+}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="photo"></div>
+  <div class="veil"></div>
+  <div class="veil-top"></div>
+  <div class="content">
+    <div class="top">
+      <div class="mark"></div>
+      <span class="studio-label">City Llama · Brooklyn, New York</span>
+    </div>
+    <div class="center">
+      <div class="wordmark">City <em>Llama.</em></div>
+      <div class="tagline">Film · Strategy · Cut</div>
+    </div>
+    <div class="bottom">
+      <span class="url">cityllamamarketing.com</span>
+      <span class="est">Est. MMXXI</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

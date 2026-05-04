@@ -2,7 +2,17 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>City Llama — Vol. XXVI</title>
+<title>City Llama — Film. Strategy. Cut.</title>
+<meta name="description" content="City Llama is a Brooklyn studio for film production and AI-powered strategy. Concept to Cut. Distribution. AI & Automation.">
+<meta property="og:title" content="City Llama — Film. Strategy. Cut.">
+<meta property="og:description" content="A Brooklyn studio for film production and AI-powered strategy. Est. MMXXI.">
+<meta property="og:image" content="assets/images/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cityllamamarketing.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="City Llama — Film. Strategy. Cut.">
+<meta name="twitter:description" content="A Brooklyn studio for film production and AI-powered strategy. Est. MMXXI.">
+<meta name="twitter:image" content="assets/images/og.jpg">
 <link rel="icon" type="image/png" href="assets/images/asset-01.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -896,6 +906,33 @@
   .colophon-bottom .c { text-align: center; }
   .colophon-bottom .r { text-align: right; }
 
+  /* ================== LOADER ================== */
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: opacity .5s ease;
+  }
+  #loader.fade-out { opacity: 0; }
+  #loader.done { display: none; }
+  #loader-word {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    opacity: 0;
+    transition: opacity .45s ease;
+  }
+  #loader-word em { font-style: italic; }
+  #loader-word.visible { opacity: 1; }
+
   /* ================== CURSOR ================== */
   .has-custom-cursor * { cursor: none !important; }
 
@@ -958,8 +995,9 @@
     .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
     .mast .left, .mast .right { display: none; }
     .mast .wordmark { font-size: 52px; padding-bottom: 12px; }
-    .mast-strip { padding: 10px 20px; font-size: 9px; }
+    .mast-strip { padding: 10px 20px; font-size: 9px; grid-template-columns: 1fr; }
     .mast-strip .l, .mast-strip .r { display: none; }
+    .mast-strip .c { text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .feature { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 48px; }
     .feature-meta { padding-top: 0; }
@@ -987,6 +1025,7 @@
     .notes-head { position: static; }
     .notes-body { font-size: 20px; }
     .notes-body p:first-of-type { font-size: 24px; }
+    .notes-body p:first-of-type::first-letter { font-size: 64px; padding: 4px 8px 0 0; }
 
     .room { grid-template-columns: 1fr; gap: 24px; padding: 56px 20px; }
 
@@ -1003,6 +1042,8 @@
 </head>
 <body>
 
+
+<div id="loader"><span id="loader-word">City <em>Llama</em></span></div>
 
 <!-- ============ MASTHEAD ============ -->
 <header class="mast">
@@ -1303,6 +1344,39 @@
   try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
 
   applyAll();
+
+  // Loader — plays once per session
+  (function () {
+    const loader = document.getElementById('loader');
+    const word   = document.getElementById('loader-word');
+
+    if (sessionStorage.getItem('cl-loaded')) {
+      loader.classList.add('done');
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    // Fade wordmark in
+    requestAnimationFrame(() => {
+      setTimeout(() => word.classList.add('visible'), 100);
+
+      // Hold, then fade wordmark out
+      setTimeout(() => word.classList.remove('visible'), 900);
+
+      // Fade overlay out
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+        document.body.style.overflow = '';
+      }, 1400);
+
+      // Remove from flow
+      setTimeout(() => {
+        loader.classList.add('done');
+        sessionStorage.setItem('cl-loaded', '1');
+      }, 1950);
+    });
+  })();
 
   // Custom cursor — skip touch devices
   if (window.matchMedia('(pointer: fine)').matches) {
