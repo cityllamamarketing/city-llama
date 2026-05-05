@@ -83,6 +83,8 @@ img { display: block; max-width: 100%; }
 .mast .right { justify-content: flex-end; }
 .mast .left a, .mast .right a { transition: color .3s; }
 .mast .left a:hover, .mast .right a:hover { color: var(--fg); }
+.nav-toggle { display: none; background: none; border: none; }
+.nav-overlay { display: none; }
 .mast .wordmark {
   display: flex;
   flex-direction: column;
@@ -300,19 +302,48 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-  .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
+  /* Nav */
+  .mast { padding: 0; grid-template-columns: 1fr; }
   .mast .left, .mast .right { display: none; }
-  .mast-strip { padding: 10px 20px; grid-template-columns: 1fr; }
-  .mast-strip .l, .mast-strip .r { display: none; }
-  .mast-strip .c { text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mast .wordmark { padding: 18px 24px 14px; align-items: flex-start; flex-direction: row; gap: 12px; }
+  .mast .wordmark .mark { width: 32px; height: 32px; }
+  .mast .wordmark .text { font-size: 28px; }
+  .nav-toggle {
+    display: flex; position: absolute; top: 18px; right: 24px;
+    flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; padding: 4px;
+    touch-action: manipulation;
+  }
+  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--fg-dim); transition: transform .3s, opacity .3s, background .3s; }
+  .nav-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--fg); }
+  .nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--fg); }
+  .nav-overlay {
+    display: flex; position: fixed; inset: 0; background: var(--bg); z-index: 10000;
+    flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 64px 24px; gap: 8px; opacity: 0; pointer-events: none; transition: opacity .35s ease;
+  }
+  .nav-open .nav-overlay { opacity: 1; pointer-events: all; }
+  .nav-overlay a {
+    font-family: var(--serif); font-size: clamp(52px, 16vw, 80px); line-height: 1;
+    letter-spacing: -0.03em; color: var(--fg-dim); transition: color .2s; touch-action: manipulation;
+  }
+  .nav-overlay a:active { color: var(--fg); }
+  .nav-overlay .nav-sub { margin-top: 40px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--fg-mute); }
 
-  .opening { padding: 64px 20px 72px; }
+  /* Mast strip — clock only */
+  .mast-strip { padding: 10px 24px; grid-template-columns: 1fr auto; }
+  .mast-strip .l, .mast-strip .c { display: none; }
+  .mast-strip .r { display: block; text-align: right; }
 
-  .note-row { padding: 32px 20px; grid-template-columns: 48px 1fr; gap: 16px; }
+  /* Content */
+  .opening { padding: 64px 24px 72px; }
+  .note-row { padding: 32px 24px; grid-template-columns: 48px 1fr; gap: 16px; }
   .note-arrow { display: none; }
+  .note-title { font-size: clamp(24px, 7vw, 38px); }
   .note-desc { font-size: 16px; }
+  .note-meta { flex-direction: column; gap: 4px; }
 
-  .colophon { padding: 56px 20px 24px; }
+  .colophon { padding: 56px 24px 24px; }
   .colophon-bottom { grid-template-columns: 1fr; gap: 12px; }
   .colophon-bottom .c, .colophon-bottom .r { text-align: left; }
 }
@@ -333,7 +364,18 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
   <nav class="right">
     <a href="index.html#contact">Contact</a>
   </nav>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<nav class="nav-overlay" aria-hidden="true">
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="notes.html">Notes</a>
+  <a href="index.html#contact">Contact</a>
+  <span class="nav-sub">City Llama · Brooklyn, New York</span>
+</nav>
 
 <div class="mast-strip">
   <span class="l">Vol. XXVI · Spring Quarterly</span>
@@ -492,6 +534,22 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
       requestAnimationFrame(animate);
     })();
   }
+
+  // Mobile nav toggle
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const overlay = document.querySelector('.nav-overlay');
+    if (!toggle || !overlay) return;
+    function closeNav() { document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded','false'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    toggle.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', open);
+      overlay.setAttribute('aria-hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  })();
 </script>
 
 </body>

@@ -356,6 +356,8 @@
   .mast .right { justify-content: flex-end; }
   .mast .right a, .mast .left a { transition: color .3s; }
   .mast .right a:hover, .mast .left a:hover { color: var(--fg); }
+  .nav-toggle { display: none; background: none; border: none; }
+  .nav-overlay { display: none; }
   .mast .wordmark {
     display: flex;
     flex-direction: column;
@@ -458,7 +460,7 @@
   }
   .feature-frame .plate {
     position: absolute; inset: 0;
-    background-image: url("assets/images/asset-02.png");
+    background-image: url("assets/images/city-llama_mascot.png");
     background-size: cover;
     background-position: 58% center;
     filter: grayscale(0.4) contrast(1.04) brightness(0.82);
@@ -992,51 +994,142 @@
 
   /* ================== RESPONSIVE ================== */
   @media (max-width: 960px) {
-    .mast { padding: 18px 20px 0; grid-template-columns: 1fr; gap: 16px; }
+
+    /* ── NAV MENU OVERLAY ── */
+    .mast { padding: 0; grid-template-columns: 1fr; }
     .mast .left, .mast .right { display: none; }
-    .mast .wordmark { font-size: 52px; padding-bottom: 12px; }
-    .mast-strip { padding: 10px 20px; font-size: 9px; grid-template-columns: 1fr; }
-    .mast-strip .l, .mast-strip .r { display: none; }
-    .mast-strip .c { text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mast .wordmark { padding: 18px 24px 14px; border-bottom: none; align-items: flex-start; flex-direction: row; gap: 12px; }
+    .mast .wordmark .mark { width: 32px; height: 32px; }
+    .mast .wordmark .text { font-size: 28px; }
 
-    .feature { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 48px; }
-    .feature-meta { padding-top: 0; }
-    .feature-title h1 { font-size: clamp(52px, 14vw, 84px); }
+    /* Hamburger button */
+    .nav-toggle {
+      display: flex;
+      position: absolute;
+      top: 18px; right: 24px;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 10001;
+      padding: 4px;
+      touch-action: manipulation;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--fg-dim);
+      transition: transform .3s, opacity .3s, background .3s;
+    }
+    .nav-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--fg); }
+    .nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--fg); }
 
-    .section-mast { padding: 32px 20px; grid-template-columns: 1fr; gap: 16px; }
+    /* Full-screen nav overlay */
+    .nav-overlay {
+      display: flex;
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 10000;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 64px 24px;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .nav-open .nav-overlay { opacity: 1; pointer-events: all; }
+    .nav-overlay a {
+      font-family: var(--serif);
+      font-size: clamp(52px, 16vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--fg-dim);
+      transition: color .2s;
+      touch-action: manipulation;
+    }
+    .nav-overlay a:hover, .nav-overlay a:active { color: var(--fg); }
+    .nav-overlay .nav-sub {
+      margin-top: 40px;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--fg-mute);
+    }
+
+    /* Mast strip — clock only */
+    .mast-strip { padding: 10px 24px; grid-template-columns: 1fr auto; }
+    .mast-strip .l { display: none; }
+    .mast-strip .c { display: none; }
+    .mast-strip .r { display: block; text-align: right; }
+
+    /* ── HERO ── */
+    /* Image first, full-bleed, then title below */
+    .feature {
+      padding: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0;
+    }
+    .feature-frame {
+      grid-row: 1;
+      aspect-ratio: 3/4;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+    .feature-meta {
+      grid-row: 3;
+      padding: 40px 24px 56px;
+      border-top: 1px solid var(--line);
+    }
+    .feature-title {
+      grid-row: 2;
+      padding: 48px 24px 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .feature-title h1 { font-size: clamp(56px, 15vw, 88px); }
+    .feature-spine { display: none; }
+
+    /* ── INDEX ── */
+    .section-mast { padding: 32px 24px; grid-template-columns: 1fr; gap: 12px; }
     .section-mast .count { text-align: left; }
-
-    .index { padding: 0 20px; }
+    .index { padding: 0 24px; }
     .index-head { display: none; }
-    .entry {
-      grid-template-columns: 60px 1fr;
-      gap: 16px;
-      padding: 32px 0;
-    }
-    .entry:hover { padding: 32px 0; }
-    .entry .director, .entry .format, .entry .year, .entry .status {
-      grid-column: 2;
-      text-align: left;
-    }
-    .entry .title { font-size: 34px; }
+    .wall-card { padding: 40px 0 56px; }
+    .brief-cta { font-size: 11px; }
 
-    .notes { padding: 100px 20px; }
-    .notes-inner { grid-template-columns: 1fr; gap: 48px; }
+    /* ── NOTES ESSAY ── */
+    .notes { padding: 72px 24px; }
+    .notes-inner { grid-template-columns: 1fr; gap: 40px; }
     .notes-head { position: static; }
-    .notes-body { font-size: 20px; }
-    .notes-body p:first-of-type { font-size: 24px; }
-    .notes-body p:first-of-type::first-letter { font-size: 64px; padding: 4px 8px 0 0; }
+    .notes-head h2 { font-size: clamp(36px, 10vw, 56px); }
+    .notes-body { font-size: 19px; }
+    .notes-body p:first-of-type { font-size: 22px; }
+    /* Replace float drop cap with styled first line on mobile */
+    .notes-body p:first-of-type::first-letter {
+      font-size: 56px;
+      padding: 2px 8px 0 0;
+    }
 
-    .room { grid-template-columns: 1fr; gap: 24px; padding: 56px 20px; }
+    /* ── ROOMS ── */
+    .room { grid-template-columns: 1fr; gap: 20px; padding: 48px 24px; }
 
-    .contact { padding: 100px 20px; }
-    .contact-inner { grid-template-columns: 1fr; gap: 64px; }
+    /* ── CONTACT ── */
+    .contact { padding: 80px 24px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .email { font-size: clamp(18px, 5vw, 26px); word-break: break-all; }
 
-    .colophon { padding: 48px 20px 24px; }
-    .colophon-top, .colophon-bottom { grid-template-columns: 1fr; gap: 32px; }
+    /* ── COLOPHON ── */
+    .colophon { padding: 56px 24px 24px; }
+    .colophon-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .colophon-bottom { grid-template-columns: 1fr; gap: 12px; }
     .colophon-bottom .c, .colophon-bottom .r { text-align: left; }
-    .colophon-mark { width: 48px; height: 48px; margin: 48px auto 12px; }
-    .colophon-wordmark { font-size: 80px; padding: 0 0 16px; }
+    .colophon-mark { width: 44px; height: 44px; margin: 40px 0 10px; }
+    .colophon-wordmark { font-size: clamp(64px, 18vw, 100px); padding: 0 0 12px; }
   }
 </style>
 </head>
@@ -1059,7 +1152,20 @@
   <nav class="right">
     <a href="#contact">Contact</a>
   </nav>
+  <!-- Mobile hamburger -->
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- Mobile nav overlay -->
+<nav class="nav-overlay" aria-hidden="true">
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="notes.html">Notes</a>
+  <a href="#contact">Contact</a>
+  <span class="nav-sub">City Llama · Brooklyn, New York</span>
+</nav>
 
 <div class="mast-strip">
   <span class="l">Vol. XXVI · Spring Quarterly</span>
@@ -1465,6 +1571,30 @@
     }
     tick();
     setInterval(tick, 1000);
+  })();
+
+  // Mobile nav toggle
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const overlay = document.querySelector('.nav-overlay');
+    if (!toggle || !overlay) return;
+    function openNav() {
+      document.body.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      document.body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.contains('nav-open') ? closeNav() : openNav();
+    });
+    overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
   })();
 </script>
 
