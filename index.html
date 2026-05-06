@@ -848,32 +848,6 @@
   .colophon {
     padding: 80px 48px 40px;
   }
-  .colophon-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 80px;
-    border-bottom: 1px solid var(--line);
-  }
-  .colophon-col h6 {
-    font-family: var(--mono);
-    font-size: 9.5px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--fg-dim);
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
-  .colophon-col a, .colophon-col span {
-    display: block;
-    font-family: var(--serif);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--fg);
-    transition: color .3s;
-  }
-  .colophon-col a:hover { color: var(--fg-dim); }
-  .colophon-col em { font-style: italic; }
   .colophon-mark {
     width: 72px; height: 72px;
     margin: 80px auto 20px;
@@ -973,24 +947,6 @@
   }
   #cursor-label.visible { opacity: 1; }
 
-  /* ================== TWEAKS ================== */
-  #tweaks {
-    position: fixed; right: 20px; bottom: 20px; z-index: 200;
-    background: #0a0a0a; border: 1px solid var(--line-2);
-    padding: 22px; width: 280px;
-    font-family: var(--mono); color: var(--fg-dim);
-    display: none;
-  }
-  #tweaks.visible { display: block; }
-  #tweaks h5 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg); margin-bottom: 18px; font-weight: 400; }
-  #tweaks .group { margin-bottom: 18px; }
-  #tweaks .group label { display: block; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 10px; color: var(--fg-mute); }
-  #tweaks .swatches { display: flex; gap: 8px; }
-  #tweaks .sw { width: 28px; height: 28px; border: 1px solid var(--line-2); cursor: pointer; }
-  #tweaks .sw.on { outline: 1px solid var(--fg); outline-offset: 2px; }
-  #tweaks .seg { display: flex; border: 1px solid var(--line-2); }
-  #tweaks .seg button { flex: 1; padding: 10px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-dim); }
-  #tweaks .seg button.on { background: var(--fg); color: var(--bg); }
 
   /* ================== RESPONSIVE ================== */
   @media (max-width: 960px) {
@@ -1125,8 +1081,7 @@
 
     /* ── COLOPHON ── */
     .colophon { padding: 56px 24px 24px; }
-    .colophon-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .colophon-bottom { grid-template-columns: 1fr; gap: 12px; }
+.colophon-bottom { grid-template-columns: 1fr; gap: 12px; }
     .colophon-bottom .c, .colophon-bottom .r { text-align: left; }
     .colophon-mark { width: 44px; height: 44px; margin: 40px 0 10px; }
     .colophon-wordmark { font-size: clamp(64px, 18vw, 100px); padding: 0 0 12px; }
@@ -1215,7 +1170,7 @@
     <p class="synopsis">
       We stay in the room from the first page of the treatment to the last minute of the color. Film-quality production. AI-powered strategy. For brands built to last.
     </p>
-    <a class="watch" href="#">
+    <a class="watch" href="#index">
       <span class="dot"></span>
       <span>See our work</span>
     </a>
@@ -1352,23 +1307,6 @@
 
 <!-- ============ COLOPHON ============ -->
 <footer class="colophon" data-screen-label="06 Colophon">
-  <div class="colophon-top">
-    <div class="colophon-col">
-      <h6>Office</h6>
-      <span>Brooklyn <em>(HQ)</em></span>
-    </div>
-    <div class="colophon-col">
-      <h6>Services</h6>
-      <span>Concept to Cut</span>
-      <span>Distribution</span>
-      <span>AI &amp; Automation</span>
-    </div>
-    <div class="colophon-col">
-      <h6>Contact</h6>
-      <a href="mailto:info@cityllamamarketing.com">info@cityllamamarketing.com</a>
-    </div>
-  </div>
-
   <div class="colophon-mark" aria-hidden="true"></div>
   <div class="colophon-wordmark">City <em>Llama</em></div>
 
@@ -1382,74 +1320,7 @@
 <div id="cursor"></div>
 <div id="cursor-label">View →</div>
 
-<!-- ============ TWEAKS ============ -->
-<div id="tweaks">
-  <h5>Tweaks</h5>
-  <div class="group">
-    <label>Accent</label>
-    <div class="swatches" id="sw-accent"></div>
-  </div>
-  <div class="group">
-    <label>Accent placement</label>
-    <div class="seg" id="sw-place">
-      <button data-v="cta">CTA</button>
-      <button data-v="none">None</button>
-    </div>
-  </div>
-</div>
-
 <script>
-  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "accent": "bone",
-    "place": "cta"
-  }/*EDITMODE-END*/;
-
-  const ACCENTS = {
-    bone:  '#efe9dc',
-    blue:  '#4d7cff',
-    amber: '#d97706',
-    ember: '#e8543a'
-  };
-
-  const state = { ...TWEAK_DEFAULTS };
-
-  function applyAll() {
-    const color = ACCENTS[state.accent] || ACCENTS.bone;
-    document.documentElement.style.setProperty('--accent', color);
-    renderTweaks();
-  }
-
-  function renderTweaks() {
-    const wrap = document.getElementById('sw-accent');
-    wrap.innerHTML = '';
-    Object.entries(ACCENTS).forEach(([k, v]) => {
-      const b = document.createElement('button');
-      b.className = 'sw' + (state.accent === k ? ' on' : '');
-      b.style.background = v;
-      b.onclick = () => { state.accent = k; applyAll(); persist(); };
-      wrap.appendChild(b);
-    });
-    document.querySelectorAll('#sw-place button').forEach(b => {
-      b.classList.toggle('on', b.dataset.v === state.place);
-      b.onclick = () => { state.place = b.dataset.v; applyAll(); persist(); };
-    });
-  }
-
-  function persist() {
-    try {
-      window.parent.postMessage({ type: '__edit_mode_set_keys',
-        edits: { accent: state.accent, place: state.place }}, '*');
-    } catch(e) {}
-  }
-
-  window.addEventListener('message', (e) => {
-    if (!e.data) return;
-    if (e.data.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('visible');
-    else if (e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('visible');
-  });
-  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
-
-  applyAll();
 
   // Loader — plays once per session
   (function () {
