@@ -7,14 +7,15 @@
 <meta name="description" content="The City Llama quarterly. Essays on film, strategy, and the infrastructure of good work.">
 <meta property="og:title" content="Notes — City Llama">
 <meta property="og:description" content="Essays on film, strategy, and the infrastructure of good work.">
-<meta property="og:image" content="https://cityllamamarketing.com/assets/images/og.jpg">
+<meta property="og:image" content="https://cityllamamarketing.com/assets/images/logomark.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cityllamamarketing.com/notes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Notes — City Llama">
 <meta name="twitter:description" content="Essays on film, strategy, and the infrastructure of good work.">
-<meta name="twitter:image" content="https://cityllamamarketing.com/assets/images/og.jpg">
-<link rel="icon" type="image/png" href="assets/images/asset-01.png">
+<meta name="twitter:image" content="https://cityllamamarketing.com/assets/images/logomark.png">
+<link rel="icon" type="image/png" href="/assets/images/logomark.png">
+<link rel="apple-touch-icon" href="/assets/images/logomark.png">
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 @font-face {
@@ -95,7 +96,7 @@ img { display: block; max-width: 100%; }
 }
 .mast .wordmark .mark {
   width: 52px; height: 52px;
-  background-image: url("assets/images/asset-01.png");
+  background-image: url("/assets/images/logomark.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -110,8 +111,8 @@ img { display: block; max-width: 100%; }
 }
 .mast .wordmark em { font-style: italic; }
 .mast-strip {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: center;
   padding: 14px 48px;
   border-bottom: 1px solid var(--line);
   font-family: var(--mono);
@@ -120,8 +121,6 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   color: var(--fg-dim);
 }
-.mast-strip .c { text-align: center; }
-.mast-strip .r { text-align: right; }
 
 /* ── OPENING ── */
 .opening {
@@ -259,6 +258,15 @@ img { display: block; max-width: 100%; }
   padding: 80px 48px 28px;
   border-bottom: 1px solid var(--line);
 }
+.colophon-mark {
+  width: 72px; height: 72px;
+  margin: 0 auto 20px;
+  background-image: url("/assets/images/logomark.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
 .colophon-wordmark {
   font-family: var(--serif);
   font-weight: 400;
@@ -331,10 +339,8 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
   .nav-overlay a:active { color: var(--fg); }
   .nav-overlay .nav-sub { margin-top: 40px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--fg-mute); }
 
-  /* Mast strip — clock only */
-  .mast-strip { padding: 10px 24px; grid-template-columns: 1fr auto; }
-  .mast-strip .l, .mast-strip .c { display: none; }
-  .mast-strip .r { display: block; text-align: right; }
+  /* Mast strip */
+  .mast-strip { padding: 10px 24px; }
 
   /* Content */
   .opening { padding: 64px 24px 72px; }
@@ -379,9 +385,7 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
 </nav>
 
 <div class="mast-strip">
-  <span class="l">Vol. XXVI · Spring Quarterly</span>
-  <span class="c">A Film &amp; Strategy Studio · Est. Brooklyn MMXXI</span>
-  <span class="r" id="clock"></span>
+  <span>A Film &amp; Strategy Studio · Est. Brooklyn 2021</span>
 </div>
 
 <!-- OPENING -->
@@ -401,7 +405,7 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
       <div class="note-title">On <em>making less.</em></div>
       <div class="note-desc">Why City Llama keeps a short list, stays in the room, and believes strategy belongs next to the camera — not across the hall from it.</div>
       <div class="note-meta">
-        <span>Spring MMXXVI</span>
+        <span>Spring 2026</span>
         <span>3 min read</span>
         <span>Founder's Essay</span>
       </div>
@@ -416,7 +420,7 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
       <div class="note-title">The <em>brief</em> as a document.</div>
       <div class="note-desc">What separates a brief that produces great work from one that produces a long email thread. A practical guide.</div>
       <div class="note-meta">
-        <span>Summer MMXXVI</span>
+        <span>Summer 2026</span>
         <span>Forthcoming</span>
       </div>
       <span class="note-forthcoming-badge">Forthcoming</span>
@@ -430,7 +434,7 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
       <div class="note-title">AI as <em>light meter.</em></div>
       <div class="note-desc">How we use machine intelligence the way a cinematographer uses a light meter — quietly, before the take, not instead of the eye.</div>
       <div class="note-meta">
-        <span>Summer MMXXVI</span>
+        <span>Summer 2026</span>
         <span>Forthcoming</span>
       </div>
       <span class="note-forthcoming-badge">Forthcoming</span>
@@ -441,6 +445,7 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
 
 <!-- COLOPHON -->
 <footer class="colophon">
+  <div class="colophon-mark" aria-hidden="true"></div>
   <div class="colophon-wordmark">City <em>Llama</em></div>
   <div class="colophon-bottom">
     <span class="l">© MMXXVI · City Llama</span>
@@ -452,23 +457,6 @@ body.has-custom-cursor, body.has-custom-cursor * { cursor: none !important; }
 <div id="cursor"></div>
 
 <script>
-  // Live clock
-  (function () {
-    const el = document.getElementById('clock');
-    function tick() {
-      const now = new Date();
-      const time = now.toLocaleTimeString('en-US', {
-        timeZone: 'America/New_York',
-        hour: '2-digit', minute: '2-digit', second: '2-digit',
-        hour12: false
-      });
-      const tz = now.toLocaleDateString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' })
-        .split(', ')[1] || 'EST';
-      el.textContent = time + ' ' + tz;
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
 
   // Custom cursor
   if (window.matchMedia('(pointer: fine)').matches) {
