@@ -468,8 +468,8 @@
     text-transform: uppercase;
     color: var(--fg);
     z-index: 2;
-    -webkit-mask-image: radial-gradient(circle 0px at -999px -999px, black 20%, transparent 80%);
-    mask-image: radial-gradient(circle 0px at -999px -999px, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle 0px at -999px -999px, black 60%, transparent 100%);
+    mask-image: radial-gradient(circle 0px at -999px -999px, black 60%, transparent 100%);
   }
   .feature-frame .plate {
     position: absolute; inset: 0;
@@ -1429,7 +1429,7 @@
     const credit = frame && frame.querySelector('.credit');
     if (!frame || !credit) return;
     function setMask(x, y, r) {
-      const v = `radial-gradient(circle ${r}px at ${x}px ${y}px, black 20%, transparent 80%)`;
+      const v = `radial-gradient(circle ${r}px at ${x}px ${y}px, black 60%, transparent 100%)`;
       credit.style.webkitMaskImage = v;
       credit.style.maskImage = v;
     }
@@ -1437,7 +1437,7 @@
       const rect = credit.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      setMask(x, y, 56);
+      setMask(x, y, 14);
     });
     frame.addEventListener('mouseleave', () => setMask(-999, -999, 0));
   })();
