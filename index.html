@@ -647,6 +647,95 @@
     border-color: var(--fg-dim);
   }
 
+  /* ================== ORIGINALS ================== */
+  .originals {
+    border-bottom: 1px solid var(--line);
+  }
+  .originals-inner {
+    padding: 80px 48px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .originals-sub {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-align: center;
+  }
+  .orig-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .orig-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+  }
+  .orig-tagline {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 26px);
+    line-height: 1.3;
+    color: var(--fg-2);
+  }
+  .orig-tagline em { font-style: italic; }
+  .orig-meta {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-top: 4px;
+  }
+  .orig-desc {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--fg-2);
+    max-width: 62ch;
+    margin-top: 8px;
+  }
+  .orig-process {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--fg-dim);
+    max-width: 58ch;
+  }
+  .originals-more {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+    text-align: center;
+  }
+
+  /* Also add rooms-lead */
+  .rooms-lead {
+    padding: 40px 48px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--fg-dim);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 40px;
+  }
+
   /* ================== NOTES ================== */
   .notes {
     padding: 200px 48px;
@@ -1051,13 +1140,14 @@
     .feature-title h1 { font-size: clamp(56px, 15vw, 88px); }
     .feature-spine { display: none; }
 
-    /* ── INDEX ── */
+    /* ── SECTION MAST ── */
     .section-mast { padding: 32px 24px; grid-template-columns: 1fr; gap: 12px; }
     .section-mast .count { text-align: left; }
-    .index { padding: 0 24px; }
-    .index-head { display: none; }
-    .wall-card { padding: 40px 0 56px; }
-    .brief-cta { font-size: 11px; }
+
+    /* ── ORIGINALS ── */
+    .originals-inner { padding: 56px 24px 72px; gap: 48px; }
+    .orig-card { padding: 40px 0; gap: 16px; }
+    .rooms-lead { padding: 32px 24px; font-size: 18px; }
 
     /* ── NOTES ESSAY ── */
     .notes { padding: 72px 24px; }
@@ -1097,6 +1187,7 @@
 <!-- ============ MASTHEAD ============ -->
 <header class="mast">
   <nav class="left">
+    <a href="#originals">Originals</a>
     <a href="work.html">Work</a>
     <a href="about.html">About</a>
     <a href="notes.html">Notes</a>
@@ -1116,6 +1207,7 @@
 
 <!-- Mobile nav overlay -->
 <nav class="nav-overlay" aria-hidden="true">
+  <a href="#originals">Originals</a>
   <a href="work.html">Work</a>
   <a href="about.html">About</a>
   <a href="notes.html">Notes</a>
@@ -1171,27 +1263,33 @@
     <p class="synopsis">
       We stay in the room from the first page of the treatment to the last minute of the color. Film-quality production. AI-powered strategy. For brands built to last.
     </p>
-    <a class="watch" href="#index">
+    <a class="watch" href="#originals">
       <span class="dot"></span>
       <span>See our work</span>
     </a>
   </div>
 </section>
 
-<!-- ============ INDEX OF FILMS ============ -->
-<div class="section-mast section-mast--center">
-  <span class="num">§ 02 — Index</span>
-  <h2 class="name">Work &amp; <em>projects</em>.</h2>
-  <span class="count">MMXXI — MMXXVI</span>
+<!-- ============ ORIGINALS ============ -->
+<div class="section-mast" id="originals">
+  <span class="num">§ 02 — Originals</span>
+  <h2 class="name">Productions under our <em>own name.</em></h2>
+  <span class="count">City Llama Productions</span>
 </div>
 
-<section class="index" id="index" data-screen-label="02 Index">
-  <div class="wall-card">
-    <span class="card-label">Current Program · MMXXVI</span>
-    <h2>No films currently<br><em>in release.</em></h2>
-    <div class="card-rule"></div>
-    <p>City Llama is accepting briefs for the MMXXVI–MMXXVII program. Documentary, narrative short, brand films with cultural intent. Every inquiry receives a reply within the week.</p>
-    <a class="brief-cta" href="#contact" aria-label="Submit a brief — jump to contact section">→ <span class="cta-text">Submit a Brief</span></a>
+<section class="originals" data-screen-label="02 Originals">
+  <div class="originals-inner">
+    <div class="originals-sub">A small slate of films, shows, and audio we make under the City Llama label.</div>
+
+    <div class="orig-card">
+      <div class="orig-title">Platinum.</div>
+      <div class="orig-tagline"><em>How brands engineer obsession</em></div>
+      <div class="orig-meta">Season I · Episode 000 · Pilot</div>
+      <p class="orig-desc">A 30-minute business and culture podcast that decodes how the world's biggest brands engineered loyalty and gamification systems to keep people hooked. Each episode takes one well-known brand, breaks down the psychology behind it, and ends with The Platinum Lesson — one transferable insight for founders and operators.</p>
+      <p class="orig-process"><em>A first pass produced with AI to test format, voice, and length before the human version. The series proper begins later this year. We make our process visible.</em></p>
+    </div>
+
+    <div class="originals-more">More soon.</div>
   </div>
 </section>
 
@@ -1235,45 +1333,33 @@
 <div class="section-mast">
   <span class="num">§ 04 — Rooms</span>
   <h2 class="name">The <em>program.</em></h2>
-  <span class="count">Three departments · one roof</span>
+  <span class="count">Two departments. One roof.</span>
 </div>
 
 <section class="rooms" id="rooms" data-screen-label="04 Rooms">
+  <div class="rooms-lead"><em>Alongside our originals, we take on a small number of commissioned projects each year. We say no often.</em></div>
+
   <article class="room">
     <span class="num">I.</span>
     <h3>Concept <em>to Cut.</em></h3>
     <div class="room-body">
-      <p>Film, commercial, documentary. From the first page of the treatment to the last minute of the color — carried by the same crew.</p>
+      <p>Film, commercial, documentary. From the first page of the treatment to the last minute of the color — carried by the same crew. We don't hand work off.</p>
       <div class="list">
         <span>Narrative Short · Feature · Doc</span>
-        <span>Brand Film · Campaign</span>
-        <span>Original IP · Development</span>
+        <span>Brand Film · Original IP</span>
       </div>
     </div>
   </article>
 
   <article class="room">
     <span class="num">II.</span>
-    <h3><em>Distribution.</em></h3>
-    <div class="room-body">
-      <p>A film is a beginning. We plan the release — festival, streamer, socials, screens — so the work lands where its audience already lives.</p>
-      <div class="list">
-        <span>Festival &amp; Distribution Strategy</span>
-        <span>Release · Press · Screenings</span>
-        <span>Socials as a Second Cut</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="room">
-    <span class="num">III.</span>
     <h3>AI &amp; <em>Automation.</em></h3>
     <div class="room-body">
-      <p>Custom pipelines and models built for film production and marketing. Quiet tools that let the work speak louder.</p>
+      <p>Custom pipelines and models built for film production and brand strategy. The same tools we use on our own work, available to a small number of partners each year.</p>
       <div class="list">
         <span>Brand Voice &amp; Audience Research</span>
         <span>On-Set Pre-Vis &amp; Lookdev Models</span>
-        <span>Content Automation &amp; Strategy</span>
+        <span>Content Automation</span>
       </div>
     </div>
   </article>
