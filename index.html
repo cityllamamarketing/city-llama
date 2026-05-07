@@ -467,12 +467,10 @@
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--fg);
-    opacity: 0;
-    transition: opacity .4s ease;
     z-index: 2;
-    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle 0px at -999px -999px, black 20%, transparent 80%);
+    mask-image: radial-gradient(circle 0px at -999px -999px, black 20%, transparent 80%);
   }
-  .feature-frame:hover .credit { opacity: 1; }
   .feature-frame .plate {
     position: absolute; inset: 0;
     background-image: url("/assets/images/asset-02_textless.png");
@@ -1423,6 +1421,25 @@
         sessionStorage.setItem('cl-loaded', '1');
       }, 1950);
     });
+  })();
+
+  // Hero credit — torch reveal
+  (function () {
+    const frame = document.querySelector('.feature-frame');
+    const credit = frame && frame.querySelector('.credit');
+    if (!frame || !credit) return;
+    function setMask(x, y, r) {
+      const v = `radial-gradient(circle ${r}px at ${x}px ${y}px, black 20%, transparent 80%)`;
+      credit.style.webkitMaskImage = v;
+      credit.style.maskImage = v;
+    }
+    frame.addEventListener('mousemove', (e) => {
+      const rect = credit.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setMask(x, y, 56);
+    });
+    frame.addEventListener('mouseleave', () => setMask(-999, -999, 0));
   })();
 
   // Custom cursor — skip touch devices
