@@ -458,6 +458,21 @@
     background: #050505;
     overflow: hidden;
   }
+  .feature-frame .credit {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg);
+    opacity: 0;
+    transition: opacity .4s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .feature-frame:hover .credit { opacity: 1; }
   .feature-frame .plate {
     position: absolute; inset: 0;
     background-image: url("/assets/images/asset-02_textless.png");
@@ -1222,6 +1237,7 @@
 
   <figure class="feature-frame" aria-hidden="true">
     <div class="plate"></div>
+    <span class="credit">Alex Argilés</span>
   </figure>
 
   <div class="feature-title">
