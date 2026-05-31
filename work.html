@@ -110,6 +110,14 @@ img { display: block; max-width: 100%; }
   letter-spacing: -0.015em;
 }
 .mast .wordmark em { font-style: italic; }
+  sup.tm {
+    font-size: 0.32em;
+    font-style: normal;
+    vertical-align: super;
+    letter-spacing: 0;
+    opacity: 0.6;
+    font-family: var(--mono);
+  }
 .mast-strip {
   display: flex;
   justify-content: center;
@@ -419,7 +427,7 @@ img { display: block; max-width: 100%; }
   </nav>
   <div class="wordmark">
     <span class="mark" aria-hidden="true"></span>
-    <span class="text">City <em>Llama</em></span>
+    <span class="text">City <em>Llama</em><sup class="tm">™</sup></span>
   </div>
   <nav class="right">
     <a href="index.html#contact">Contact</a>
@@ -519,7 +527,7 @@ img { display: block; max-width: 100%; }
 <!-- COLOPHON -->
 <footer class="colophon">
   <div class="colophon-mark" aria-hidden="true"></div>
-  <div class="colophon-wordmark">City <em>Llama</em></div>
+  <div class="colophon-wordmark">City <em>Llama</em><sup class="tm">™</sup></div>
   <div class="colophon-bottom">
     <span class="l">© MMXXVI · City Llama</span>
     <span class="c">Set in Instrument Serif &amp; JetBrains Mono</span>
