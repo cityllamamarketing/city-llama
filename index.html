@@ -727,6 +727,24 @@
     color: var(--fg-mute);
     text-align: center;
   }
+  .orig-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg);
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--fg);
+    transition: color .3s, border-color .3s;
+  }
+  .orig-cta:hover { color: var(--fg-2); border-color: var(--fg-2); }
+  .orig-cta .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--fg);
+  }
 
   /* Also add rooms-lead */
   .rooms-lead {
@@ -1276,6 +1294,18 @@
       <div class="orig-meta">Season 1 · Episode 000 · Pilot</div>
       <p class="orig-desc">A 30-minute business and culture podcast that decodes how the world's biggest brands engineered loyalty and gamification systems to keep people hooked. Each episode takes one well-known brand, breaks down the psychology behind it, and ends with The Platinum Lesson — one transferable insight for founders and operators.</p>
       <p class="orig-process"><em>A first pass produced with AI to test format, voice, and length before the human version. The series proper begins later this year. We make our process visible.</em></p>
+    </div>
+
+    <div class="orig-card">
+      <div class="orig-title">Civics.<sup class="tm">™</sup></div>
+      <div class="orig-tagline"><em>Learn the country, not just the answers</em></div>
+      <div class="orig-meta">Private Beta · Web</div>
+      <p class="orig-desc">A free study tool for the U.S. naturalization civics test, built to teach the history and government behind each question rather than answers to memorize. Editorial lessons on the founding, the Constitution, and the branches of government, paired with practice drawn from all 128 official 2025 test questions.</p>
+      <p class="orig-process"><em>Currently in private beta with a small group of testers before a public release.</em></p>
+      <a class="orig-cta" href="https://civicsapp.com" target="_blank" rel="noopener">
+        <span class="dot"></span>
+        <span>Visit civicsapp.com</span>
+      </a>
     </div>
 
     <div class="originals-more">More soon.</div>
