@@ -15,6 +15,7 @@
 <meta name="twitter:image" content="https://cityllamamarketing.com/assets/images/logomark.png">
 <link rel="icon" type="image/png" href="/assets/images/logomark.png">
 <link rel="apple-touch-icon" href="/assets/images/logomark.png">
+<link rel="preload" as="image" href="/assets/images/asset-02_textless.webp">
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -325,6 +326,10 @@
   input, select, textarea { border-radius: 0; }
   img { display: block; max-width: 100%; }
   ::selection { background: var(--fg); color: var(--bg); }
+  a:focus-visible, button:focus-visible {
+    outline: 1.5px solid var(--fg);
+    outline-offset: 4px;
+  }
 
   .meta {
     font-family: var(--mono);
@@ -481,7 +486,7 @@
   }
   .feature-frame .plate {
     position: absolute; inset: 0;
-    background-image: url("/assets/images/asset-02_textless.png");
+    background-image: url("/assets/images/asset-02_textless.webp");
     background-size: cover;
     background-position: 58% center;
     filter: grayscale(0.4) contrast(1.04) brightness(0.82);
@@ -537,12 +542,13 @@
     display: inline-flex;
     align-items: center;
     gap: 20px;
-    margin-top: 56px;
+    margin-top: 46px;
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--fg);
+    padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--fg);
     transition: color .3s, border-color .3s;
@@ -724,19 +730,20 @@
     font-size: 9px;
     letter-spacing: 0.36em;
     text-transform: uppercase;
-    color: var(--fg-mute);
+    color: var(--fg-dim);
     text-align: center;
   }
   .orig-cta {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-top: 8px;
+    margin-top: 0;
     font-family: var(--mono);
     font-size: 9.5px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--fg);
+    padding-top: 8px;
     padding-bottom: 6px;
     border-bottom: 1px solid var(--fg);
     transition: color .3s, border-color .3s;
@@ -920,7 +927,7 @@
     gap: 72px;
     padding-top: 12px;
   }
-  .contact-side h6 {
+  .contact-side h3 {
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.32em;
@@ -987,7 +994,7 @@
     font-size: 9.5px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--fg-mute);
+    color: var(--fg-dim);
     padding-top: 40px;
     border-top: 1px solid var(--line);
   }
@@ -1074,12 +1081,12 @@
     .nav-toggle {
       display: flex;
       position: absolute;
-      top: 18px; right: 24px;
+      top: 7px; right: 17px;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
       z-index: 10001;
-      padding: 4px;
+      padding: 15px 11px;
       touch-action: manipulation;
     }
     .nav-toggle span {
@@ -1125,7 +1132,7 @@
       font-size: 9px;
       letter-spacing: 0.36em;
       text-transform: uppercase;
-      color: var(--fg-mute);
+      color: var(--fg-dim);
     }
 
     /* Mast strip */
@@ -1187,7 +1194,7 @@
     /* ── CONTACT ── */
     .contact { padding: 80px 24px; }
     .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-    .email { font-size: clamp(18px, 5vw, 26px); word-break: break-all; }
+    .contact-side .email { font-size: clamp(18px, 5vw, 26px); word-break: break-all; }
 
     /* ── COLOPHON ── */
     .colophon { padding: 56px 24px 24px; }
@@ -1390,20 +1397,20 @@
     <h2 class="contact-lead">Write <em>to us.</em></h2>
     <div class="contact-side">
       <div>
-        <h6>Correspondence</h6>
+        <h3>Correspondence</h3>
         <a class="email" href="mailto:info@cityllamamarketing.com">info@cityllamamarketing.com</a>
       </div>
       <div>
-        <h6>Studio</h6>
+        <h3>Studio</h3>
         <p class="addr">Brooklyn, New York<br>By appointment</p>
       </div>
       <div>
-        <h6>Response</h6>
+        <h3>Response</h3>
         <p class="note">We reply within the week.</p>
       </div>
       <!-- Instagram: add when handle is confirmed
       <div>
-        <h6>Instagram</h6>
+        <h3>Instagram</h3>
         <a class="email" href="https://instagram.com/HANDLE">@HANDLE</a>
       </div>
       -->

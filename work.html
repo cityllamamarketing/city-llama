@@ -63,6 +63,10 @@ body { overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ::selection { background: var(--fg); color: var(--bg); }
+a:focus-visible, button:focus-visible {
+  outline: 1.5px solid var(--fg);
+  outline-offset: 4px;
+}
 
 /* ── MASTHEAD ── */
 .mast {
@@ -247,7 +251,7 @@ img { display: block; max-width: 100%; }
   font-family: var(--mono);
   font-size: 9.5px;
   letter-spacing: 0.32em;
-  color: var(--fg-mute);
+  color: var(--fg-dim);
 }
 
 /* ── BRIEF CTA ── */
@@ -280,7 +284,8 @@ img { display: block; max-width: 100%; }
 }
 .brief-cta {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 4px;
+  padding: 8px 0;
   font-family: var(--mono);
   font-size: 11.5px;
   letter-spacing: 0.38em;
@@ -323,7 +328,7 @@ img { display: block; max-width: 100%; }
   font-size: 9.5px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--fg-mute);
+  color: var(--fg-dim);
   padding-top: 40px;
   border-top: 1px solid var(--line);
 }
@@ -374,8 +379,8 @@ img { display: block; max-width: 100%; }
   .mast .wordmark .mark { width: 32px; height: 32px; }
   .mast .wordmark .text { font-size: 28px; }
   .nav-toggle {
-    display: flex; position: absolute; top: 18px; right: 24px;
-    flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; padding: 4px;
+    display: flex; position: absolute; top: 7px; right: 17px;
+    flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; padding: 15px 11px;
     touch-action: manipulation;
   }
   .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--fg-dim); transition: transform .3s, opacity .3s, background .3s; }
@@ -393,7 +398,7 @@ img { display: block; max-width: 100%; }
     letter-spacing: -0.03em; color: var(--fg-dim); transition: color .2s; touch-action: manipulation;
   }
   .nav-overlay a:active { color: var(--fg); }
-  .nav-overlay .nav-sub { margin-top: 40px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--fg-mute); }
+  .nav-overlay .nav-sub { margin-top: 40px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--fg-dim); }
 
   /* Mast strip */
   .mast-strip { padding: 10px 24px; }
@@ -430,7 +435,7 @@ img { display: block; max-width: 100%; }
     <span class="text">City <em>Llama</em><sup class="tm">™</sup></span>
   </div>
   <nav class="right">
-    <a href="index.html#contact">Contact</a>
+    <a href="/#contact">Contact</a>
   </nav>
   <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -441,7 +446,7 @@ img { display: block; max-width: 100%; }
   <a href="work.html">Work</a>
   <a href="about.html">About</a>
   <a href="notes.html">Notes</a>
-  <a href="index.html#contact">Contact</a>
+  <a href="/#contact">Contact</a>
   <span class="nav-sub">City Llama · Brooklyn, New York</span>
 </nav>
 </header>
@@ -520,7 +525,7 @@ img { display: block; max-width: 100%; }
   <div class="brief-inner">
     <h2>Bring us <em>a brief.</em></h2>
     <p>Documentary, narrative short, brand films with cultural intent. Every inquiry receives a reply within the week.</p>
-    <a class="brief-cta" href="index.html#contact" aria-label="Submit a brief — go to contact section">→ <span class="cta-text">Submit a Brief</span></a>
+    <a class="brief-cta" href="/#contact" aria-label="Submit a brief — go to contact section">→ <span class="cta-text">Submit a Brief</span></a>
   </div>
 </div>
 
